@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms · Compline</title>
+<meta name="description" content="Compline watches where you park and suggests when Sentry Mode is worth the battery. Draft public site — not yet live for testers.">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="/index.html"><img src="/assets/icon.svg" alt="">Compline <span class="draft-tag">Draft</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/index.html#how">How it works</a>
+      <a href="/signup.html">Join waitlist</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html" aria-current="page">Terms</a>
+      <a class="btn btn-primary" href="/signup.html">Request access</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap legal">
+  <p class="draft">Draft · not legal advice · for Tesla app review URLs</p>
+  <h1>Terms of use</h1>
+  <p>These draft terms cover early access to Compline. They are not finished legal counsel. Last updated: October 15, 2026.</p>
+
+  <h2>The service</h2>
+  <p><strong>Compline</strong> provides risk-informed <em>suggestions</em> about Tesla Sentry Mode after you park. It is an independent product and is not affiliated with, endorsed by, or sponsored by Tesla, Inc.</p>
+
+  <h2>Eligibility and accounts</h2>
+  <p>You must own or control a Tesla vehicle you connect, and be able to authorize third-party apps in your Tesla account. One person per account. Friend testers join only when invited or waitlisted.</p>
+
+  <h2>Tesla authorization, virtual key, and Fleet Telemetry</h2>
+  <ul>
+    <li>You sign in with Tesla OAuth (Fleet API partner flow). Compline never asks for your Tesla password.</li>
+    <li>You may be asked to add Compline’s <strong>virtual key</strong> via <code>https://tesla.com/_ak/getcompline.app</code>. Without it, Fleet Telemetry cannot be configured.</li>
+    <li><strong>Fleet Telemetry</strong> streams selected signals from your car to Compline’s server. Each vehicle’s telemetry config send is <strong>manual and separately approved</strong> — we do not silently configure cars.</li>
+    <li>TeslaFi (if used for Nick’s own car during comparison) is not used for other testers.</li>
+  </ul>
+
+  <h2>No auto-Sentry; no wakes; no commands</h2>
+  <p>Compline’s operating mode for suggestions does <strong>not</strong> turn Sentry Mode on or off for you. We do not call Tesla wake or command endpoints as part of normal scoring. You remain responsible for how you use Sentry Mode and for your vehicle.</p>
+
+  <h2>Location and home pin</h2>
+  <p>You set a home pin so home parks can be excluded or treated specially. Parking locations are processed to produce scores. Coverage varies by city; blank areas default to suggesting Sentry on.</p>
+
+  <h2>Acceptable use</h2>
+  <p>Do not abuse the API, share login codes, attempt to access another user’s car, or reverse engineer telemetry credentials. Do not use Compline for emergency services or as a substitute for your own judgment about safety.</p>
+
+  <h2>Fees</h2>
+  <p>Early tester access may be free. Tesla bills Fleet API usage per vehicle (data, signals, wakes, commands). Compline may pass through or absorb costs; any charge will be disclosed before you are billed.</p>
+
+  <h2>Disclaimer</h2>
+  <p>Scores are estimates from public and licensed crime and context data. They can be wrong. Compline is provided “as is” without warranties. To the fullest extent allowed by law, Compline is not liable for vehicle incidents, battery drain, or decisions you make about Sentry Mode.</p>
+
+  <h2>Termination</h2>
+  <p>You may stop anytime by disconnecting Tesla access, removing the virtual key, and deleting your account. We may suspend access for abuse or to comply with Tesla’s partner rules.</p>
+
+  <h2>Contact</h2>
+  <p>questions@getcompline.app (mailbox not yet live).</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>Compline · keeps watch while you sleep. <span class="draft-tag">Not published</span></div>
+    <nav aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/signup.html">Waitlist</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

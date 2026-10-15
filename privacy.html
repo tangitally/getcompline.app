@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy · Compline</title>
+<meta name="description" content="Compline watches where you park and suggests when Sentry Mode is worth the battery. Draft public site — not yet live for testers.">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="/index.html"><img src="/assets/icon.svg" alt="">Compline <span class="draft-tag">Draft</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/index.html#how">How it works</a>
+      <a href="/signup.html">Join waitlist</a>
+      <a href="/privacy.html" aria-current="page">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a class="btn btn-primary" href="/signup.html">Request access</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap legal">
+  <p class="draft">Draft · not legal advice · for Tesla app review URLs</p>
+  <h1>Privacy policy</h1>
+  <p>This draft explains what Compline plans to collect when friend testers connect a Tesla. It is not finished legal counsel. Last updated: October 15, 2026.</p>
+
+  <h2>Who we are</h2>
+  <p><strong>Compline</strong> (getcompline.app) helps Tesla owners decide when Sentry Mode is worth the battery after they park. Contact: privacy@getcompline.app (mailbox not yet live).</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Account:</strong> email, name, phone (if you add one), risk mode, home pin and home parking type.</li>
+    <li><strong>Tesla connection:</strong> OAuth access and refresh tokens (encrypted at rest), vehicle identifiers you select (VIN, display name), and scopes you grant.</li>
+    <li><strong>Virtual key:</strong> we host a public key at <code>/.well-known/appspecific/com.tesla.3p.public-key.pem</code>. You add that key in the Tesla app. We do not receive your Tesla password.</li>
+    <li><strong>Fleet Telemetry:</strong> park-relevant signals your car streams to our server (for example location, gear, lock, Sentry state, battery). Configured per vehicle with your approval.</li>
+    <li><strong>Parking history:</strong> places and times used to score suggestions, kept for a retention window you can change (default 90 days).</li>
+  </ul>
+
+  <h2>How we use data</h2>
+  <p>To score parks, send optional SMS suggestions, improve coverage maps with labeled parks, and operate the service. We do <strong>not</strong> sell personal data. We do not use your car data to wake the vehicle or send remote commands. <strong>Auto-Sentry is off</strong> — suggestions only.</p>
+
+  <h2>Tesla and third parties</h2>
+  <p>Tesla processes authorization and vehicle data under Tesla’s Privacy Notice. Compline is a third-party app using Tesla Fleet API. You can revoke Compline in your Tesla account and remove the virtual key from the car’s Locks screen.</p>
+
+  <h2>Security</h2>
+  <p>Tesla tokens are encrypted before storage. Secrets stay in the server environment, not in git. Telemetry arrives over TLS to our receiver. Access to production systems is limited.</p>
+
+  <h2>Retention and deletion</h2>
+  <p>Location history follows your retention setting. You can export or delete your account from the app; deletion removes account rows and tied parking data. Backups age out on a short cycle.</p>
+
+  <h2>Children</h2>
+  <p>Compline is not for children under 16.</p>
+
+  <h2>Changes</h2>
+  <p>We will post updates on this page and, for material changes, notify active testers by email when mail is configured.</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>Compline · keeps watch while you sleep. <span class="draft-tag">Not published</span></div>
+    <nav aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/signup.html">Waitlist</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
