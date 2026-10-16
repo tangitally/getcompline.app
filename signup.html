@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
-<title>Tester access · Compline</title>
-<meta name="description" content="Compline watches where you park and suggests when Sentry Mode is worth the battery. Early access for friend testers.">
+<title>Join the waitlist · Compline</title>
+<meta name="description" content="Join the Compline waitlist. We’ll email you when tester spots open. Joining does not grant app access.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,15 +19,49 @@
       <a href="/index.html#how">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
+      <a class="btn" href="/signup.html" aria-current="page">Join the waitlist</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap narrow page">
   <p class="kicker">Private beta</p>
-  <h1>Tester access is paused.</h1>
-  <p class="sub">This draft form does not submit to a live backend yet — it confirms locally so we can wire accounts next.</p>
-  <p class="sub">Stub only: nothing is sent to a server. Onboarding (Tesla OAuth, virtual key, home pin) happens in the app after Nick approves go-live.</p>
+  <h1>Join the waitlist</h1>
+  <p class="sub">We’ll email you when tester spots open. Joining doesn’t grant app access.</p>
+
+  <form class="waitlist" id="waitlist" method="post" action="https://app.getcompline.app/waitlist">
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+    </div>
+
+    <div class="field">
+      <label for="city">City <span class="opt">(optional)</span></label>
+      <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Coral Gables">
+    </div>
+
+    <div class="field">
+      <label for="model">Tesla model <span class="opt">(optional)</span></label>
+      <select id="model" name="model">
+        <option value="">Select…</option>
+        <option>Model 3</option>
+        <option>Model Y</option>
+        <option>Model S</option>
+        <option>Model X</option>
+        <option>Cybertruck</option>
+      </select>
+    </div>
+
+    <button class="btn" type="submit">Join the waitlist</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+  </form>
+
+  <p class="fine">We only use your email to tell you about Compline access. No spam, never sold.</p>
 </main>
 
 <footer class="footer">
@@ -39,5 +73,63 @@
     </nav>
   </div>
 </footer>
+<script>
+(function () {
+  var form = document.getElementById('waitlist');
+  var status = document.getElementById('form-status');
+  var button = form.querySelector('button[type="submit"]');
+  var endpoint = 'https://app.getcompline.app/waitlist';
+
+  function showStatus(kind, message) {
+    status.hidden = false;
+    status.className = 'form-status ' + kind;
+    status.textContent = message;
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    status.hidden = true;
+    status.textContent = '';
+    status.className = 'form-status';
+
+    form.email.value = form.email.value.trim();
+    form.city.value = form.city.value.trim();
+    if (!form.email.checkValidity()) {
+      form.email.reportValidity();
+      return;
+    }
+
+    var payload = {
+      email: form.email.value,
+      city: form.city.value,
+      model: form.model.value,
+      website: form.website.value
+    };
+
+    button.disabled = true;
+    button.textContent = 'Joining…';
+    form.setAttribute('aria-busy', 'true');
+
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      if (!response.ok) throw new Error('not ok');
+      showStatus('is-ok', 'You’re on the list. We’ll email you when a tester spot opens. Joining doesn’t grant app access.');
+      form.reset();
+    }).catch(function () {
+      showStatus('is-err', 'We couldn’t save that just now. Check your connection and try again.');
+    }).then(function () {
+      button.disabled = false;
+      button.textContent = 'Join the waitlist';
+      form.removeAttribute('aria-busy');
+    });
+  });
+})();
+</script>
 </body>
 </html>
