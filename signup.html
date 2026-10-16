@@ -3,67 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Join waitlist · Compline</title>
+<meta name="theme-color" content="#000000">
+<title>Tester access · Compline</title>
 <meta name="description" content="Compline watches where you park and suggests when Sentry Mode is worth the battery. Early access for friend testers.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/site.css">
-
 </head>
 <body>
 <header class="top">
   <div class="wrap top-inner">
-    <a class="brand" href="/index.html"><img src="/assets/icon.svg" alt="">Compline</a>
+    <a class="brand" href="/index.html">Compline</a>
     <nav class="nav" aria-label="Primary">
       <a href="/index.html#how">How it works</a>
-      <a href="/signup.html" aria-current="page">Join waitlist</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a class="btn btn-primary" href="/signup.html">Request access</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <div class="page-hero">
-    <div class="eyebrow">Private beta</div>
-    <h1>Join the tester waitlist</h1>
-    <p>Tell us who you are and where you park. This draft form does not submit to a live backend yet — it confirms locally so we can wire accounts next.</p>
-  </div>
-  <form class="form-card" id="waitlist" action="#" method="post" novalidate>
-    <label for="name">Name</label>
-    <input id="name" name="name" autocomplete="name" required placeholder="Alex">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
-    <label for="phone">Phone (for park texts later)</label>
-    <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 …">
-    <p class="hint">Optional for now. Notifications are still being designed.</p>
-    <label for="city">Primary city</label>
-    <input id="city" name="city" placeholder="Aventura, FL">
-    <label for="vin_hint">Tesla model (optional)</label>
-    <select id="vin_hint" name="model">
-      <option value="">Select…</option>
-      <option>Model 3</option>
-      <option>Model Y</option>
-      <option>Model S</option>
-      <option>Model X</option>
-      <option>Cybertruck</option>
-    </select>
-    <label for="note">Anything we should know?</label>
-    <textarea id="note" name="note" rows="3" placeholder="Friend of Nick · usually street parks in Aventura"></textarea>
-    <div class="form-actions">
-      <button class="btn btn-primary btn-block" type="submit">Request access</button>
-    </div>
-    <p class="note">Stub only: nothing is sent to a server. Onboarding (Tesla OAuth, virtual key, home pin) happens in the app after Nick approves go-live.</p>
-    <div class="success" id="ok" role="status">Thanks — request captured locally. We’ll open real signup when Tesla registration and public pages are cleared.</div>
-  </form>
+<main class="wrap narrow page">
+  <p class="kicker">Private beta</p>
+  <h1>Tester access is paused.</h1>
+  <p class="sub">This draft form does not submit to a live backend yet — it confirms locally so we can wire accounts next.</p>
+  <p class="sub">Stub only: nothing is sent to a server. Onboarding (Tesla OAuth, virtual key, home pin) happens in the app after Nick approves go-live.</p>
 </main>
-<script>
-document.getElementById('waitlist').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.getElementById('ok').classList.add('show');
-});
-</script>
 
 <footer class="footer">
   <div class="wrap footer-inner">
@@ -71,7 +36,6 @@ document.getElementById('waitlist').addEventListener('submit', function (e) {
     <nav aria-label="Legal">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a href="/signup.html">Waitlist</a>
     </nav>
   </div>
 </footer>
