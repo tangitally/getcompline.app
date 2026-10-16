@@ -3,23 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
 <title>Compline — keeps watch while you sleep</title>
 <meta name="description" content="Compline watches where you park and suggests when Sentry Mode is worth the battery. Early access for friend testers.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/site.css">
-
 </head>
 <body>
 <header class="top">
   <div class="wrap top-inner">
-    <a class="brand" href="/index.html"><img src="/assets/icon.svg" alt="">Compline</a>
+    <a class="brand" href="/index.html">Compline</a>
     <nav class="nav" aria-label="Primary">
-      <a href="/index.html#how" aria-current="page">How it works</a>
-      <a href="/signup.html">Join waitlist</a>
+      <a href="/index.html#how">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a class="btn btn-primary" href="/signup.html">Request access</a>
     </nav>
   </div>
 </header>
@@ -27,60 +26,64 @@
 <main>
   <section class="wrap hero">
     <div>
-      <div class="eyebrow">For Tesla owners</div>
+      <p class="kicker">For Tesla owners</p>
       <h1>Know when Sentry is worth the battery.</h1>
-      <p class="lede">Compline scores the place you just parked and texts a clear suggest: Sentry on or off. You stay in control. No auto-Sentry. No waking the car for us.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/signup.html">Join the tester waitlist</a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
-      </div>
+      <p class="lede">Compline scores the place you just parked and texts a clear suggest: Sentry on or off. You stay in control.</p>
+      <p class="policy">Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car when needed for testing, and never sends other commands without your say-so.</p>
+      <p class="text-link"><a href="#how">See how it works</a></p>
     </div>
-    <aside class="hero-card" aria-label="Sample score">
-      <div class="ring-wrap">
-        <div class="ring"><div class="ring-inner">
-          <div class="ring-score">46</div>
-          <div class="ring-label">Watchful</div>
-        </div></div>
-      </div>
-      <div class="hero-meta">
-        <div><span class="pill">Suggest Sentry ON</span></div>
-        <div><strong>Office garage</strong> · Coral Gables</div>
-        <div>You decide. Compline never flips Sentry for you.</div>
-      </div>
+    <aside class="score" aria-label="Sample score">
+      <p class="numeral">46</p>
+      <p class="score-name">Watchful</p>
+      <hr>
+      <p class="suggest">Suggest Sentry ON</p>
+      <p class="place"><strong>Office garage</strong> · Coral Gables</p>
+      <p class="policy">Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car when needed for testing, and never sends other commands without your say-so.</p>
     </aside>
   </section>
 
-  <section class="wrap section" id="how">
+  <section class="wrap block" id="how">
     <h2>How it works</h2>
     <p class="sub">Three steps. Your Tesla account, your virtual key, your home pin. Fleet Telemetry streams park data to our server — not TeslaFi for testers.</p>
-    <div class="grid-3">
-      <article class="card"><div class="num">1</div><h3>Sign in with Tesla</h3><p>OAuth with Tesla Fleet API. We never see your Tesla password. You pick which car.</p></article>
-      <article class="card"><div class="num">2</div><h3>Add the virtual key</h3><p>In the Tesla app, open <strong>tesla.com/_ak/getcompline.app</strong> and approve Compline’s key. Required for Telemetry.</p></article>
-      <article class="card"><div class="num">3</div><h3>Pin home &amp; pick a mode</h3><p>Home is left out of scoring. Choose Relaxed, Balanced, or Cautious. Add a phone for park texts later.</p></article>
-    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num" aria-hidden="true">1</span>
+        <div>
+          <h3>Sign in with Tesla</h3>
+          <p>OAuth with Tesla Fleet API. We never see your Tesla password. You pick which car.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">2</span>
+        <div>
+          <h3>Add the virtual key</h3>
+          <p>In the Tesla app, open <strong>tesla.com/_ak/getcompline.app</strong> and approve Compline’s key. Required for Telemetry.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">3</span>
+        <div>
+          <h3>Pin home &amp; pick a mode</h3>
+          <p>Home is left out of scoring. Choose Relaxed, Balanced, or Cautious. Add a phone for park texts later.</p>
+        </div>
+      </li>
+    </ol>
   </section>
 
-  <section class="wrap section">
+  <section class="wrap block">
     <h2>What Compline will and won’t do</h2>
     <p class="sub">Designed to sit next to the Tesla app — dark, quiet, and honest about blank cities.</p>
-    <div class="promise">
-      <ul>
-        <li><span class="check">✓</span><span><strong>Suggest only.</strong> Auto-Sentry stays off. We never send car commands or wake your car for polling.</span></li>
-        <li><span class="check">✓</span><span><strong>Your data, your car.</strong> Location and Telemetry stay on our server for your account. Encrypted Tesla tokens.</span></li>
-        <li><span class="check">✓</span><span><strong>Blank cities are honest.</strong> No crime feed yet means default Sentry ON until we have data — including Aventura today.</span></li>
-        <li><span class="check">✓</span><span><strong>Revoke anytime.</strong> Remove the virtual key in the car’s Locks screen, or revoke Compline in your Tesla account.</span></li>
-      </ul>
-    </div>
+    <ul class="rows">
+      <li><strong>Automatic Sentry is off by default.</strong> You can turn Sentry on or off yourself from the app. Compline may briefly wake your car when needed for testing, and never sends other commands without your say-so.</li>
+      <li><strong>Your data, your car.</strong> Location and Telemetry stay on our server for your account. Encrypted Tesla tokens.</li>
+      <li><strong>Blank cities are honest.</strong> No crime feed yet means default Sentry ON until we have data — including Aventura today.</li>
+      <li><strong>Revoke anytime.</strong> Remove the virtual key in the car’s Locks screen, or revoke Compline in your Tesla account.</li>
+    </ul>
   </section>
 
-  <section class="wrap">
-    <div class="cta-band">
-      <div>
-        <h2>Friend testers welcome</h2>
-        <p>Private beta first. Public onboarding opens after Tesla’s third-party registration and Nick’s go.</p>
-      </div>
-      <a class="btn btn-primary" href="/signup.html">Request access</a>
-    </div>
+  <section class="wrap block close">
+    <h2>Friend testers welcome</h2>
+    <p>Private beta first. Public onboarding opens after Tesla’s third-party registration and Nick’s go.</p>
   </section>
 </main>
 
@@ -90,7 +93,6 @@
     <nav aria-label="Legal">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a href="/signup.html">Waitlist</a>
     </nav>
   </div>
 </footer>
