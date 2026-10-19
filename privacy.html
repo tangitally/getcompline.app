@@ -53,7 +53,15 @@
     <li><strong>Account:</strong> email, name, phone number (required for WhatsApp alerts; shared with AgentPhone and Meta only to deliver alerts), your risk setting, your home pin and home parking type.</li>
     <li><strong>Tesla connection:</strong> Tesla OAuth access and refresh tokens (encrypted at rest), the vehicle you select (VIN and display name), and the scopes you grant. We never receive your Tesla password.</li>
     <li><strong>Virtual key:</strong> we host a public key at <code>/.well-known/appspecific/com.tesla.3p.public-key.pem</code>. You add it on your car's screen or in the Tesla app so Compline's commands are accepted.</li>
-    <li><strong>Fleet Telemetry:</strong> with your approval, your car streams vehicle signals to our server, including <code>Location</code> (exact latitude and longitude), <code>Gear</code>, <code>VehicleSpeed</code>, <code>Locked</code>, <code>SentryMode</code>, <code>BatteryLevel</code> and <code>EstBatteryRange</code>. [DECISION PENDING: the final signal list for tester cars. We will show you the exact list before your car is configured, and we do not add signals without asking again.]</li>
+    <li><strong>Fleet Telemetry:</strong> with your approval, tester cars stream a short, park-only list to our server.
+      <ul>
+        <li><code>Location</code>: where the car is parked, to score the spot.</li>
+        <li><code>Gear</code>: to know when the car has parked.</li>
+        <li><code>VehicleSpeed</code>: to confirm it stopped.</li>
+        <li><code>Locked</code>, <code>SentryMode</code>, <code>BatteryLevel</code> and <code>EstBatteryRange</code>: so Sentry isn't turned on when the battery is low.</li>
+      </ul>
+      <p>Tester cars send only these signals. We won't add any without asking you first.</p>
+    </li>
     <li><strong>Location while driving:</strong> Tesla sends <code>Location</code> whenever it changes (on capable firmware, about every 5 meters of movement), so our server receives positions while you drive as well as where you park. We use park points for scoring.</li>
     <li><strong>Parks and scores:</strong> where and when you parked, the risk score and report for each park, and any "wrong call" feedback you give.</li>
     <li><strong>Commands:</strong> a log of car commands sent from your account or by Automatic Sentry (what, when, and whether the car confirmed).</li>
@@ -64,7 +72,7 @@
   <p>You are responsible for telling other people who drive the car that its location is shared with Compline.</p>
 
   <h2>How we use data</h2>
-  <p>To score parks, decide whether Sentry Mode is worth it, show alerts, run Automatic Sentry if you turn it on, and operate and secure the service. We do <strong>not</strong> sell personal data. [DECISION PENDING: whether tester park data is used to improve the scoring model, and if so, in what form.]</p>
+  <p>To score parks, decide whether Sentry Mode is worth it, show alerts, run Automatic Sentry if you turn it on, and operate and secure the service. We do <strong>not</strong> sell personal data. Tester data is used to improve the risk score for everyone, only in rounded or combined form (park locations rounded to roughly a city block, never tied to your name or account in the model). You can opt out by emailing <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>. After you opt out, your data is left out of future model updates.</p>
 
   <h2>Sentry, wakes, and car commands</h2>
   <p>Automatic Sentry is <strong>off</strong> unless you turn it on. When it is on, Compline may send a <em>Sentry on</em> command after you park at a spot it scores as risky. Compline's only car control is turning Sentry Mode on and off. That control may not be enabled at first (suggestions only). Compline may briefly wake your car to change Sentry, and does nothing else (at most 3 wakes a day; never below 20% battery). Compline never unlocks the car, opens the trunk or frunk, changes climate, or starts or drives the car.</p>
