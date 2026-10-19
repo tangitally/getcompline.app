@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>Privacy · Compline</title>
-<meta name="description" content="How Compline handles your Tesla connection and parking data. Suggestions only, and you stay in control. Not affiliated with Tesla.">
+<meta name="description" content="How Compline handles your Tesla connection and parking data. You stay in control. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
 <meta property="og:title" content="Privacy · Compline">
-<meta property="og:description" content="How Compline handles your Tesla connection and parking data. Suggestions only, and you stay in control. Not affiliated with Tesla.">
+<meta property="og:description" content="How Compline handles your Tesla connection and parking data. You stay in control. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/privacy.html">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Privacy · Compline">
-<meta name="twitter:description" content="How Compline handles your Tesla connection and parking data. Suggestions only, and you stay in control. Not affiliated with Tesla.">
+<meta name="twitter:description" content="How Compline handles your Tesla connection and parking data. You stay in control. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
@@ -41,40 +41,64 @@
 </header>
 
 <main class="wrap narrow legal">
-  <p class="kicker">Draft · not legal advice · for Tesla app review URLs</p>
+  <p class="kicker">Draft · not legal advice · pending legal review · not yet published</p>
   <h1>Privacy policy</h1>
-  <p>This draft explains what Compline plans to collect when friend testers connect a Tesla. It is not finished legal counsel. Last updated: October 16, 2026.</p>
+  <p>This draft explains what Compline collects when a friend tester connects a Tesla, and what happens to it. Last updated: October 19, 2026.</p>
 
   <h2>Who we are</h2>
-  <p><strong>Compline</strong> (getcompline.app) helps Tesla owners decide when Sentry Mode is worth the battery after they park. Contact: privacy@getcompline.app (mailbox not yet live).</p>
+  <p><strong>Compline</strong> (getcompline.app) helps Tesla owners decide when Sentry Mode is worth the battery after they park. Contact: <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>. Use that address for privacy questions and for account or data deletion requests.</p>
 
   <h2>What we collect</h2>
   <ul>
-    <li><strong>Account:</strong> email, name, phone (if you add one), risk mode, home pin and home parking type.</li>
-    <li><strong>Tesla connection:</strong> OAuth access and refresh tokens (encrypted at rest), vehicle identifiers you select (VIN, display name), and scopes you grant.</li>
-    <li><strong>Virtual key:</strong> we host a public key at <code>/.well-known/appspecific/com.tesla.3p.public-key.pem</code>. You add that key in the Tesla app. We do not receive your Tesla password.</li>
-    <li><strong>Fleet Telemetry:</strong> park-relevant signals your car streams to our server (for example location, gear, lock, Sentry state, battery). Configured per vehicle with your approval.</li>
-    <li><strong>Parking history:</strong> places and times used to score suggestions, kept for a retention window you can change (default 90 days).</li>
-    <li><strong>Waitlist:</strong> we collect your email and, if you share them, your city and Tesla model. They are used only for access updates and deleted on request via privacy@getcompline.app.</li>
+    <li><strong>Account:</strong> email, name, phone number (only if you add one), your risk setting, your home pin and home parking type.</li>
+    <li><strong>Tesla connection:</strong> Tesla OAuth access and refresh tokens (encrypted at rest), the vehicle you select (VIN and display name), and the scopes you grant. We never receive your Tesla password.</li>
+    <li><strong>Virtual key:</strong> we host a public key at <code>/.well-known/appspecific/com.tesla.3p.public-key.pem</code>. You add it on your car's screen or in the Tesla app so Compline's commands are accepted.</li>
+    <li><strong>Fleet Telemetry:</strong> with your approval, your car streams vehicle signals to our server, including <code>Location</code> (exact latitude and longitude), <code>Gear</code>, <code>VehicleSpeed</code>, <code>Locked</code>, <code>SentryMode</code>, <code>BatteryLevel</code> and <code>EstBatteryRange</code>. [DECISION PENDING: the final signal list for tester cars. We will show you the exact list before your car is configured, and we do not add signals without asking again.]</li>
+    <li><strong>Location while driving:</strong> Tesla sends <code>Location</code> whenever it changes (on capable firmware, about every 5 meters of movement), so our server receives positions while you drive as well as where you park. We use park points for scoring.</li>
+    <li><strong>Parks and scores:</strong> where and when you parked, the risk score and report for each park, and any "wrong call" feedback you give.</li>
+    <li><strong>Commands:</strong> a log of car commands sent from your account or by Automatic Sentry (what, when, and whether the car confirmed).</li>
+    <li><strong>Alerts and notifications:</strong> the alerts shown in the app, and, if you allow notifications, your browser's Web Push subscription (an endpoint address and keys your browser creates).</li>
+    <li><strong>Sign-in and security log:</strong> sign-ins and account changes, with the time and IP address.</li>
+    <li><strong>Waitlist:</strong> your email and, if you share them, your city and Tesla model.</li>
   </ul>
 
   <h2>How we use data</h2>
-  <p>To score parks, send optional SMS suggestions, improve coverage maps with labeled parks, and operate the service. We do <strong>not</strong> sell personal data. Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car when needed for testing, and never sends other commands without your say-so.</p>
+  <p>To score parks, decide whether Sentry Mode is worth it, show alerts, run Automatic Sentry if you turn it on, and operate and secure the service. We do <strong>not</strong> sell personal data. [DECISION PENDING: whether tester park data is used to improve the scoring model, and if so, in what form.]</p>
 
-  <h2>Tesla and third parties</h2>
-  <p>Tesla processes authorization and vehicle data under Tesla’s Privacy Notice. Compline is a third-party app using Tesla Fleet API. You can revoke Compline in your Tesla account and remove the virtual key from the car’s Locks screen.</p>
+  <h2>Sentry, wakes, and car commands</h2>
+  <p>Automatic Sentry is <strong>off</strong> unless you turn it on. When it is on, Compline may send a <em>Sentry on</em> command after you park at a spot it scores as risky, and may wake the car to deliver it (at most 3 wakes a day; never below 20% battery). You can also tap Sentry on, Sentry off, Wake, Lock, Honk or Flash yourself. Compline never unlocks the car, opens the trunk or frunk, changes climate, or starts or drives the car.</p>
+
+  <h2>Text messages</h2>
+  <p>Compline does <strong>not</strong> send text messages today. Alerts appear in the app and, if you allow it, as push notifications. If we add text alerts later (our planned provider is AgentPhone, pending carrier approval), they will be opt-in only, with STOP and HELP, and we will update this page first.</p>
+
+  <h2>Who else handles data</h2>
+  <ul>
+    <li><strong>Tesla:</strong> processes sign-in, vehicle data and commands under Tesla's Privacy Notice. Compline is a third-party app using the Tesla Fleet API. You can revoke Compline in your Tesla account and remove the virtual key from the car's Locks screen.</li>
+    <li><strong>DigitalOcean:</strong> hosts our server and the Fleet Telemetry receiver (United States).</li>
+    <li><strong>GitHub Pages:</strong> hosts this public website.</li>
+    <li><strong>Web Push services</strong> (Apple, Google or Mozilla, depending on your browser): deliver notifications you allow. They see the encrypted message and your subscription address.</li>
+    <li><strong>OpenStreetMap Nominatim</strong> and the <strong>U.S. National Weather Service</strong>: we send a park location to look up the place name and the overnight forecast. Map tiles in the app load from OpenStreetMap, which sees the map area you view and your IP address.</li>
+    <li><strong>Crime and context data</strong> used for scoring (not your personal data): public city and county incident and crash records, police records requests, OpenStreetMap, U.S. Census statistics, Florida DOT data, and similar public sources.</li>
+  </ul>
 
   <h2>Security</h2>
-  <p>Tesla tokens are encrypted before storage. Secrets stay in the server environment, not in git. Telemetry arrives over TLS to our receiver. Access to production systems is limited.</p>
+  <p>Tesla tokens are encrypted before storage. Server secrets are kept out of source code and stored with restricted access. Telemetry arrives over TLS from Tesla-signed vehicle certificates, and the app is served over HTTPS. Access to production systems is limited to the operator.</p>
 
   <h2>Retention and deletion</h2>
-  <p>Location history follows your retention setting. You can export or delete your account from the app; deletion removes account rows and tied parking data. Backups age out on a short cycle.</p>
+  <ul>
+    <li><strong>Parking history and scores:</strong> kept for your retention setting (default 90 days, adjustable in Account).</li>
+    <li><strong>Raw telemetry</strong> (including exact positions): 7 days. <strong>Hourly summaries and events:</strong> 90 days.</li>
+    <li><strong>Backups:</strong> [DECISION PENDING: how long encrypted backups keep tester data, and whether a deletion request removes it from backups.]</li>
+    <li><strong>Deleting your account</strong> (Account, or email us) removes your account, Tesla tokens, vehicles, parks, reports, commands, alerts and push subscriptions. [DECISION PENDING: your car's raw telemetry, summaries and server log lines are not yet removed automatically on deletion; the method and deadline for removing them still need to be set.]</li>
+    <li>You can export your data as JSON from the Account page.</li>
+  </ul>
+  <p>The founder's own car is handled separately: its data is kept long-term for internal testing. This does not apply to tester cars.</p>
 
   <h2>Children</h2>
-  <p>Compline is not for children under 16.</p>
+  <p>Compline is not for anyone under 16.</p>
 
   <h2>Changes</h2>
-  <p>We will post updates on this page and, for material changes, notify active testers by email when mail is configured.</p>
+  <p>We will post updates on this page and email active testers about material changes before they take effect.</p>
 </main>
 
 <footer class="footer">
