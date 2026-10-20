@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>Terms · Compline</title>
-<meta name="description" content="Early-access terms for Compline. Suggestions only, and you decide when Sentry Mode is on. Not affiliated with Tesla.">
+<meta name="description" content="Early-access terms for Compline. You decide whether Compline may turn Sentry Mode on. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
 <meta property="og:title" content="Terms · Compline">
-<meta property="og:description" content="Early-access terms for Compline. Suggestions only, and you decide when Sentry Mode is on. Not affiliated with Tesla.">
+<meta property="og:description" content="Early-access terms for Compline. You decide whether Compline may turn Sentry Mode on. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/terms.html">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Terms · Compline">
-<meta name="twitter:description" content="Early-access terms for Compline. Suggestions only, and you decide when Sentry Mode is on. Not affiliated with Tesla.">
+<meta name="twitter:description" content="Early-access terms for Compline. You decide whether Compline may turn Sentry Mode on. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
@@ -41,44 +41,50 @@
 </header>
 
 <main class="wrap narrow legal">
-  <p class="kicker">Draft · not legal advice · for Tesla app review URLs</p>
+  <p class="kicker">Draft · not legal advice · pending legal review · not yet published</p>
   <h1>Terms of use</h1>
-  <p>These draft terms cover early access to Compline. They are not finished legal counsel. Last updated: October 15, 2026.</p>
+  <p>These draft terms cover early (friend tester) access to Compline. Last updated: October 19, 2026.</p>
 
   <h2>The service</h2>
-  <p><strong>Compline</strong> provides risk-informed <em>suggestions</em> about Tesla Sentry Mode after you park. It is an independent product and is not affiliated with, endorsed by, or sponsored by Tesla, Inc.</p>
+  <p><strong>Compline</strong> scores the risk of where you park and helps you decide when Sentry Mode is worth the battery. If you turn on Automatic Sentry, it can also turn Sentry on for you. It is an independent product and is not affiliated with, endorsed by, or sponsored by Tesla, Inc.</p>
 
   <h2>Eligibility and accounts</h2>
-  <p>You must own or control a Tesla vehicle you connect, and be able to authorize third-party apps in your Tesla account. One person per account. Friend testers join only when invited or waitlisted.</p>
+  <p>You must own or be allowed to control the Tesla you connect, and be able to authorize third-party apps in your Tesla account. One person per account. Testers join by invitation or from the waitlist. You must be at least 18. In Florida, someone under 18 can cancel a contract, so Compline is only for adults.</p>
 
   <h2>Tesla authorization, virtual key, and Fleet Telemetry</h2>
   <ul>
-    <li>You sign in with Tesla OAuth (Fleet API partner flow). Compline never asks for your Tesla password.</li>
-    <li>You may be asked to add Compline’s <strong>virtual key</strong> via <code>https://tesla.com/_ak/getcompline.app</code>. Without it, Fleet Telemetry cannot be configured.</li>
-    <li><strong>Fleet Telemetry</strong> streams selected signals from your car to Compline’s server. Each vehicle’s telemetry config send is <strong>manual and separately approved</strong> — we do not silently configure cars.</li>
-    <li>TeslaFi (if used for Nick’s own car during comparison) is not used for other testers.</li>
+    <li>You sign in with Tesla's own sign-in (Fleet API). Compline never asks for your Tesla password.</li>
+    <li>You pair Compline's <strong>virtual key</strong> (<code>https://tesla.com/_ak/getcompline.app</code>) on your car. Without it, telemetry and Sentry commands do not work.</li>
+    <li><strong>Fleet Telemetry</strong> streams selected signals from your car, including its location, to Compline's server. Each car is configured only after you approve the list of signals; we do not configure cars silently.</li>
   </ul>
 
   <h2>Sentry, wakes, and commands</h2>
-  <p>Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car when needed for testing, and never sends other commands without your say-so. You remain responsible for how you use Sentry Mode and for your vehicle.</p>
+  <p>Automatic Sentry is off unless you turn it on. When on, Compline may turn Sentry on after you park. Compline's only car control is turning Sentry Mode on and off. That control may not be enabled at first (suggestions only). Compline may briefly wake your car to change Sentry, and does nothing else (at most 3 wakes a day, not below 20% battery). Compline never unlocks, opens, climate-controls, starts or drives your car. You remain responsible for your vehicle and for how you use Sentry Mode.</p>
+  <p>If you use WhatsApp or Telegram alerts, replying ON turns Sentry on for your car (same limits as Automatic Sentry). No other command can be sent by message. You're responsible for who can access your messaging account. If the battery is below 20%, the alert says so. For any other failure, the alert says Sentry couldn't be turned on.</p>
 
   <h2>Location and home pin</h2>
-  <p>You set a home pin so home parks can be excluded or treated specially. Parking locations are processed to produce scores. Coverage varies by city; blank areas default to suggesting Sentry on.</p>
+  <p>You set a home pin so home parks can be handled separately (for example an overnight schedule you choose). Parking locations are processed to produce scores. Coverage varies by city; where we have no local data, Compline suggests leaving Sentry on.</p>
+  <p>You are responsible for telling other people who drive the car that its location is shared with Compline.</p>
+
+  <h2>Alerts and messages</h2>
+  <p>Alerts appear in the app and, if you allow it, as push notifications. You can also choose WhatsApp, Telegram or email alerts in Settings. Each one is opt-in. Replying STOP to WhatsApp switches you back to app notifications. Compline does not send SMS text messages today. If we add SMS (planned provider AgentPhone, pending carrier approval), it will be opt-in with STOP and HELP, and we will update this page first. Push alerts are delivered through your phone's or browser's own push service (for example Apple or Google).</p>
+  <p>No message includes an address, coordinates, or a place name. We will not add location to any message, now or later, without updating this page first.</p>
+  <p>WhatsApp uses a separate unchecked box at sign-up, not bundled with these terms. The box says: "Send me Compline parking alerts on WhatsApp at [number]. Reply STOP anytime." We store the time you opt in.</p>
 
   <h2>Acceptable use</h2>
-  <p>Do not abuse the API, share login codes, attempt to access another user’s car, or reverse engineer telemetry credentials. Do not use Compline for emergency services or as a substitute for your own judgment about safety.</p>
+  <p>Do not abuse the service or the Tesla API, share sign-in codes, try to access another person's account or car, or reverse engineer telemetry credentials. Do not use Compline for emergencies or instead of your own judgment about safety.</p>
 
   <h2>Fees</h2>
-  <p>Early tester access may be free. Tesla bills Fleet API usage per vehicle (data, signals, wakes, commands). Compline may pass through or absorb costs; any charge will be disclosed before you are billed.</p>
+  <p>Early tester access is free unless we tell you otherwise in advance. Tesla bills Fleet API usage per vehicle (data, wakes and commands); Compline currently absorbs it. Any charge to you will be disclosed before you are billed.</p>
 
   <h2>Disclaimer</h2>
-  <p>Scores are estimates from public and licensed crime and context data. They can be wrong. Compline is provided “as is” without warranties. To the fullest extent allowed by law, Compline is not liable for vehicle incidents, battery drain, or decisions you make about Sentry Mode.</p>
+  <p>Scores are estimates from public crime, crash and context data. They can be wrong, and a command can fail to reach the car. Compline is provided "as is" without warranties. To the fullest extent allowed by law, Compline is not liable for vehicle incidents, battery drain, missed or unwanted Sentry changes, or decisions you make about Sentry Mode.</p>
 
   <h2>Termination</h2>
-  <p>You may stop anytime by disconnecting Tesla access, removing the virtual key, and deleting your account. We may suspend access for abuse or to comply with Tesla’s partner rules.</p>
+  <p>You may stop anytime by turning off Automatic Sentry, revoking Compline in your Tesla account, removing the virtual key, and deleting your account. We may suspend access for abuse or to comply with Tesla's partner rules.</p>
 
   <h2>Contact</h2>
-  <p>questions@getcompline.app (mailbox not yet live).</p>
+  <p><a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a></p>
 </main>
 
 <footer class="footer">
