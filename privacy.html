@@ -76,8 +76,7 @@
   <p>To score parks, decide whether Sentry Mode is worth it, show alerts, run Automatic Sentry if you turn it on, and operate and secure the service. We do <strong>not</strong> sell personal data. Tester data is used to improve the risk score for everyone, only in rounded or combined form (park locations rounded to roughly a city block, never tied to your name or account in the model). You can opt out by emailing <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>. After you opt out, your data is left out of future model updates.</p>
 
   <h2>Sentry, wakes, and car commands</h2>
-  <!-- TODO: This wake limit can widen once the cap is enforced on every path. -->
-  <p>Automatic Sentry is <strong>off</strong> unless you turn it on. When it is on, Compline may send a <em>Sentry on</em> command after you park at a spot it scores as risky. Compline's only car control is turning Sentry Mode on and off. You can turn Sentry on or off for your car from the app. Automatic Sentry is separate and off unless you turn it on. Compline may briefly wake your car to change Sentry, and does nothing else. Automatic Sentry and reply-ON wake the car at most 3 times a day, and never when the battery is below 20%. Compline never unlocks the car, opens the trunk or frunk, changes climate, or starts or drives the car.</p>
+  <p>Automatic Sentry is <strong>off</strong> unless you turn it on. When it is on, Compline may send a <em>Sentry on</em> command after you park at a spot it scores as risky. Compline's only car control is turning Sentry Mode on and off. You can turn Sentry on or off for your car from the app. Automatic Sentry is separate and off unless you turn it on. Compline may briefly wake your car to change Sentry, and does nothing else. For your car, Compline wakes it at most 3 times a day for Sentry changes, and never turns Sentry on when the battery is below 20%. Compline never unlocks the car, opens the trunk or frunk, changes climate, or starts or drives the car.</p>
   <p>If you use WhatsApp or Telegram alerts, replying ON turns Sentry on for your car (same limits as Automatic Sentry). No other command can be sent by message. If the battery is below 20%, the alert says so. For any other failure, the alert says Sentry couldn't be turned on.</p>
 
   <h2>Alerts and messages</h2>
@@ -105,7 +104,7 @@
   <ul>
     <li><strong>Parking history and scores:</strong> kept for your retention setting (default 90 days, adjustable in Account).</li>
     <li><strong>Raw telemetry</strong> (including exact positions): 7 days. <strong>Hourly summaries and events:</strong> 90 days.</li>
-    <li>When you delete your account, we remove your data from the live app within 30 days. Encrypted backups are kept longer and are only used to restore the service after a failure; if a backup is ever restored, we delete your data from it again.</li>
+    <li>When you delete your account, we remove your data from the live app within 30 days. Encrypted backups are kept longer and are only used to restore the service after a failure; if a backup is ever restored, we delete your data from it again. Backups are encrypted and access is limited to the operator. For now, deletion requests are handled by hand, and each one is completed within 30 days, including your car's recorded data and logs.</li>
     <li>You can export your data as JSON from the Account page.</li>
   </ul>
   <p>The founder's own car is handled separately: its data is kept long-term for internal testing. This does not apply to tester cars.</p>
