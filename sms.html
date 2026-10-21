@@ -35,7 +35,7 @@
       <a href="/index.html#how">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a class="btn" href="/signup.html">Join the waitlist</a>
+      <a class="btn" href="https://app.getcompline.app/login?mode=signup">Join the waitlist</a>
     </nav>
   </div>
 </header>
@@ -43,7 +43,7 @@
 <main class="wrap narrow legal">
   <p class="kicker">SMS alerts</p>
   <h1>Compline text alerts</h1>
-  <p>Compline sends text messages, available once carrier approval is complete, about <strong>your own car</strong> after you park. Last updated: October 20, 2026.</p>
+  <p>Compline sends text messages about <strong>your own car</strong> after you park. Last updated: October 21, 2026.</p>
 
   <h2>What we send</h2>
   <ul>
@@ -54,24 +54,35 @@
   <p>No marketing or promotional texts.</p>
 
   <h2>How often</h2>
-  <p>Message frequency varies with your parking events, usually one text each time you park. Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.</p>
+  <p>Message frequency varies with your parking events, usually 1-3 texts per park. Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.</p>
 
-  <h2>Opting in</h2>
-  <p>You opt in by adding your mobile number and checking the consent box below in Compline. Consent is not a condition of any purchase.</p>
-  <div class="waitlist" aria-label="Opt-in example">
-    <p class="fine"><em>Example only. This form is for display and does not collect or store anything.</em></p>
-    <div class="field">
-      <label for="sms-phone">Mobile number</label>
-      <input id="sms-phone" type="tel" placeholder="(305) 555-0123" disabled>
+  <h2>Get Compline text alerts</h2>
+  <p>Enter your mobile number and check the box to get Compline parking alerts by text. Text alerts are optional. You can use Compline with app, email, WhatsApp or Telegram alerts instead.</p>
+  <!-- Canonical consent sentence for consent_version sms-2026-10-22. The dashboard copy must match this sentence. -->
+  <form class="waitlist" id="sms-optin" method="post" action="https://app.getcompline.app/sms-optin" aria-label="Text alert sign-up">
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
     </div>
+    <input type="hidden" name="consent_version" value="sms-2026-10-22">
+
     <div class="field">
-      <label style="display:flex;gap:.6em;align-items:flex-start;font-weight:400">
-        <input type="checkbox" disabled style="width:auto;margin-top:.3em;accent-color:#a898c9">
-        <span>I agree to receive Compline parking alert texts (risk score and Sentry Mode status, no location) at this number. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>.</span>
+      <label for="sms-phone">Mobile number (US)</label>
+      <input id="sms-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" aria-describedby="sms-phone-hint">
+      <p class="field-hint" id="sms-phone-hint">10-digit US number</p>
+    </div>
+
+    <div class="field">
+      <label class="check">
+        <input type="checkbox" name="consent" value="true">
+        <span>I agree to receive recurring automated text messages from Compline at the number above: parking alerts for my connected Tesla (parking risk score and Sentry Mode status, never its location) and replies to my texts. Message frequency varies, usually 1-3 texts per park. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. We will not share mobile information with third parties for promotional or marketing purposes. See our <a href="/privacy.html">Privacy policy</a> and <a href="/terms.html">Terms</a>.</span>
       </label>
     </div>
-    <button class="btn" type="button" disabled>Turn on text alerts</button>
-  </div>
+
+    <button class="btn" type="submit">Save my text preference</button>
+    <p class="form-status" id="sms-status" role="status" aria-live="polite"></p>
+  </form>
+  <!-- TODO: add an "operated by" line here once the brand decision is made. -->
 
   <h2>Opting out and help</h2>
   <p>Reply <strong>STOP</strong> to any Compline text to stop all messages; you will get one confirmation and nothing after. Reply <strong>HELP</strong> for help, or email <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>.</p>
@@ -92,5 +103,89 @@
     </nav>
   </div>
 </footer>
+<script>
+(function () {
+  var form = document.getElementById('sms-optin');
+  var status = document.getElementById('sms-status');
+  var button = form.querySelector('button[type="submit"]');
+  var endpoint = 'https://app.getcompline.app/sms-optin';
+  var version = form.consent_version.value;
+  var savedLabel = button.textContent;
+
+  var savedMessage = "You're signed up for Compline text alerts. We'll text a confirmation to this number. Reply STOP anytime to opt out.";
+  var skippedMessage = "No text alerts set up: you didn't check the consent box, so we didn't save your number.";
+  var invalidMessage = "Enter a 10-digit US mobile number.";
+  var limitedMessage = "Too many tries right now. Please try again in a few minutes.";
+  var failedMessage = "We couldn't save that just now. Check your connection and try again.";
+
+  function showStatus(kind, message) {
+    status.className = 'form-status ' + kind;
+    status.textContent = message;
+  }
+
+  if (new URLSearchParams(window.location.search).get('e') === '1') {
+    showStatus('is-err', failedMessage);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    form.phone.value = form.phone.value.trim();
+    if (!form.phone.checkValidity()) {
+      form.phone.reportValidity();
+      return;
+    }
+
+    var payload = {
+      phone: form.phone.value,
+      consent: form.consent.checked === true,
+      consent_version: version,
+      website: form.website.value
+    };
+
+    button.disabled = true;
+    button.textContent = 'Saving…';
+    form.setAttribute('aria-busy', 'true');
+
+    fetch(endpoint, {
+      method: 'POST',
+      credentials: 'omit',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      if (response.status === 429) {
+        showStatus('is-err', limitedMessage);
+        return;
+      }
+      if (response.status === 400) {
+        showStatus('is-err', invalidMessage);
+        return;
+      }
+      if (!response.ok) throw new Error('not ok');
+      return response.json().then(function (body) {
+        if (body && body.ok === true && body.saved === true) {
+          showStatus('is-ok', savedMessage);
+          form.reset();
+          form.consent_version.value = version;
+          return;
+        }
+        if (body && body.ok === true && body.saved === false) {
+          showStatus('is-note', skippedMessage);
+          return;
+        }
+        throw new Error('bad body');
+      });
+    }).catch(function () {
+      showStatus('is-err', failedMessage);
+    }).then(function () {
+      button.disabled = false;
+      button.textContent = savedLabel;
+      form.removeAttribute('aria-busy');
+    });
+  });
+})();
+</script>
 </body>
 </html>
