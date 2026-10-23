@@ -1,7 +1,9 @@
 /* Default parked hours: 14. Risky hours stay at 4.
    The numbers in how-it-works/index.html match this file at 14.
    300 W = 7.2 kWh / 24 h, the owner figure Electrek cited on 22 Feb 2024.
-   $0.1816/kWh = EIA Table 5.3 residential, August 2026.
+   $0.57-$0.63/kWh is the rounded band around Paren Q3 2026, via Electrek
+   13 Oct 2026: non-member average 56.9¢/kWh, time-of-use peak 63.7¢/kWh.
+   Year dollars use kWh/year = kWh/day × 365 (1,095 at the default), not 90 × 12.
    0.25 kWh/mi and 89.25 kWh = EPA 2026 Model Y Long Range RWD
    (25 kWh/100 mi, 357 miles). 89.25 is rated energy, not a pack size.
    250 kW = Tesla's published V3 Supercharger peak. */
@@ -10,7 +12,8 @@
   if (!parkedInput) return;
 
   var DRAW_W = 300;
-  var HOME_USD = 0.1816;
+  var SC_LOW = 0.57;
+  var SC_HIGH = 0.63;
   var KWH_PER_MI = 0.25;
   var PEAK_KW = 250;
   var EPA_KWH = 89.25;
@@ -36,9 +39,8 @@
     });
   }
 
-  function rawUsd(n) {
-    var four = Math.round((n + Number.EPSILON) * 10000) / 10000;
-    return "$" + four.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
+  function moneyRange(kwh) {
+    return money(kwh * SC_LOW) + "-" + money(kwh * SC_HIGH);
   }
 
   function render() {
@@ -48,9 +50,6 @@
     var kwhDay = savedH * DRAW_W / 1000;
     var kwhMonth = kwhDay * 30;
     var kwhYear = kwhDay * 365;
-    var usdDay = kwhDay * HOME_USD;
-    var usdMonth = kwhMonth * HOME_USD;
-    var usdYear = kwhYear * HOME_USD;
     var miDay = kwhDay / KWH_PER_MI;
     var miMonth = kwhMonth / KWH_PER_MI;
     var miYear = kwhYear / KWH_PER_MI;
@@ -71,9 +70,9 @@
     setText("est-kwh-month", kwhMonthText);
     setText("est-kwh-year", kwhYearText);
     setText("est-pct-day", grouped(pctDay, 2));
-    setText("est-usd-day", money(usdDay));
-    setText("est-usd-month", money(usdMonth));
-    setText("est-usd-year", money(usdYear));
+    setText("est-usd-day", moneyRange(kwhDay));
+    setText("est-usd-month", moneyRange(kwhMonth));
+    setText("est-usd-year", moneyRange(kwhYear));
     setText("est-mi-day", miDayText);
     setText("est-mi-month", miMonthText);
     setText("est-mi-year", miYearText);
@@ -86,7 +85,7 @@
     var lines = [
       kwhDayText + " kWh/day = " + savedH + " hours × 300 W ÷ 1,000",
       grouped(kwhMonth, 2) + " kWh/month = " + kwhDayText + " × 30. " + grouped(kwhYear, 2) + " kWh/year = " + kwhDayText + " × 365",
-      money(usdDay) + "/day from " + kwhDayText + " × $0.1816 = " + rawUsd(usdDay) + ". " + money(usdMonth) + "/month from " + grouped(kwhMonth, 2) + " × $0.1816 = " + rawUsd(usdMonth) + ". " + money(usdYear) + "/year from " + grouped(kwhYear, 2) + " × $0.1816 = " + rawUsd(usdYear),
+      moneyRange(kwhDay) + "/day from " + kwhDayText + " × $0.57 = " + money(kwhDay * SC_LOW) + " and " + kwhDayText + " × $0.63 = " + money(kwhDay * SC_HIGH) + ". " + moneyRange(kwhMonth) + "/month from " + grouped(kwhMonth, 2) + " × $0.57 = " + money(kwhMonth * SC_LOW) + " and " + grouped(kwhMonth, 2) + " × $0.63 = " + money(kwhMonth * SC_HIGH) + ". " + moneyRange(kwhYear) + "/year from " + grouped(kwhYear, 2) + " × $0.57 = " + money(kwhYear * SC_LOW) + " and " + grouped(kwhYear, 2) + " × $0.63 = " + money(kwhYear * SC_HIGH),
       miDayText + " miles/day = " + kwhDayText + " ÷ 0.25. " + miMonthText + " miles/month = " + grouped(kwhMonth, 2) + " ÷ 0.25. " + miYearText + " miles/year = " + grouped(kwhYear, 2) + " ÷ 0.25",
       grouped(minDay, 2) + " minutes/day = " + kwhDayText + " ÷ 250 × 60. " + grouped(minMonth, 1) + " minutes/month = " + grouped(kwhMonth, 2) + " ÷ 250 × 60. " + grouped(minYear, 1) + " minutes/year = " + grouped(kwhYear, 2) + " ÷ 250 × 60",
       grouped(pctDay, 2) + "% a day = " + kwhDayText + " ÷ 89.25"
