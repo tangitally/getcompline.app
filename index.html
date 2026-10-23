@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
-<title>Compline — keeps watch while you sleep</title>
-<meta name="description" content="Risk-aware Sentry for your Tesla. Protection where you park, battery savings where you don't need it. Not affiliated with Tesla.">
+<title>Compline — Sentry when it matters</title>
+<meta name="description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
-<meta property="og:title" content="Compline: Sentry Mode when the spot needs it">
-<meta property="og:description" content="Risk-aware Sentry for your Tesla. Protection where you park, battery savings where you don't need it. Not affiliated with Tesla.">
+<meta property="og:title" content="Compline: Sentry when it matters">
+<meta property="og:description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -17,103 +17,158 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Compline: Sentry Mode when the spot needs it">
-<meta name="twitter:description" content="Risk-aware Sentry for your Tesla. Protection where you park, battery savings where you don't need it. Not affiliated with Tesla.">
+<meta name="twitter:title" content="Compline: Sentry when it matters">
+<meta name="twitter:description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/now-screen.webp" as="image">
 <link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
-<header class="top">
-  <div class="wrap top-inner">
-    <a class="brand" href="/index.html">Compline</a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/index.html#how">How it works</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a class="btn" href="https://app.getcompline.app/login?mode=signup">Join the waitlist</a>
+<body class="mkt">
+<a class="m-skip" href="#content">Skip to content</a>
+<header class="m-top">
+  <div class="m-wrap m-bar">
+    <a class="m-logo" href="/">
+      <img src="/assets/mark-icon.svg" alt="" width="26" height="26">
+      <img src="/assets/mark-word.svg" alt="Compline" width="89" height="26">
+    </a>
+    <nav class="m-nav" aria-label="Primary">
+      <a class="m-nav-link" href="/how-it-works/">How it works</a>
+      <a class="m-btn" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="wrap hero">
-    <div>
-      <p class="kicker">For Tesla owners</p>
-      <h1>Know when Sentry is worth the battery.</h1>
-      <p class="lede">Compline scores the place you just parked and sends a clear suggestion: Sentry on or off. You stay in control.</p>
-      <p class="policy">Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car to change Sentry, and never sends other commands without your say-so.</p>
-      <div class="hero-actions">
-        <a class="btn" href="https://app.getcompline.app/login?mode=signup">Join the waitlist</a>
-        <p class="text-link"><a href="#how">See how it works</a></p>
+<main id="content">
+  <section class="m-hero" aria-labelledby="hero-title">
+    <div class="m-wrap m-hero-grid">
+      <div>
+        <p class="m-kicker">For Tesla owners</p>
+        <h1 id="hero-title">Sentry when it matters. Battery when it doesn't.</h1>
+        <p class="m-lede">Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it.</p>
+        <div class="m-actions">
+          <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
+          <a class="m-text" href="/how-it-works/">How it works</a>
+        </div>
+        <p class="m-note">Early access for South Florida Tesla owners. Miami-Dade, Broward, and Palm Beach.</p>
+      </div>
+      <figure class="m-phone">
+        <img src="/assets/now-screen.webp" width="780" height="1688" alt="Compline Now screen on a demo account. Risk score 38, medium risk, a dark map, and the Sentry battery card. The spot shown is a sample on Lincoln Road in Miami Beach." fetchpriority="high">
+        <figcaption>Demo account. Sample spot.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="m-section" aria-labelledby="features-title">
+    <div class="m-wrap">
+      <h2 id="features-title">On the Now screen</h2>
+      <div class="m-grid">
+        <article class="m-card m-span">
+          <div class="m-gauge">
+            <svg viewBox="0 0 168 168" aria-hidden="true">
+              <circle class="m-ring-track" cx="84" cy="84" r="76"></circle>
+              <circle class="m-ring-fill" cx="84" cy="84" r="76"></circle>
+            </svg>
+            <p class="m-score"><span class="m-sr">Risk score </span>38<span class="m-sr"> out of 100</span></p>
+          </div>
+          <h3 class="m-label">Spot risk score</h3>
+          <p class="m-value">Every park gets a 0-100 risk score from local crime, car-damage and time-of-day data.</p>
+          <ul class="m-bands" aria-label="Score bands">
+            <li><span class="m-dot m-dot-quiet" aria-hidden="true"></span>Quiet</li>
+            <li><span class="m-dot m-dot-watchful" aria-hidden="true"></span>Watchful</li>
+            <li><span class="m-dot m-dot-elevated" aria-hidden="true"></span>Elevated</li>
+            <li><span class="m-dot m-dot-hot" aria-hidden="true"></span>Hot</li>
+          </ul>
+          <img class="m-shot" src="/assets/crop-map.webp" width="652" height="242" alt="Dark map of the sample Lincoln Road spot, with a violet marker on the block." loading="lazy">
+          <p class="m-loc">Parked on Lincoln Rd, Miami Beach</p>
+          <p class="m-asof">as of 2:34 PM</p>
+          <p class="m-attr">Map data <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a></p>
+        </article>
+
+        <article class="m-card">
+          <h3 class="m-label">Auto-Sentry</h3>
+          <p class="m-value">Turn it on and Compline switches Sentry on at risky spots for you. Your call, your schedule.</p>
+        </article>
+
+        <article class="m-card">
+          <img class="m-shot" src="/assets/crop-battery.webp" width="716" height="172" alt="Demo battery card. It reads Sentry off, 0 hours this week." loading="lazy">
+          <h3 class="m-label">Battery saved</h3>
+          <p class="m-value">See your car's real Sentry drain and the hours Compline saved you.</p>
+        </article>
+
+        <article class="m-card">
+          <div class="m-bubble">
+            <p class="m-label">Text</p>
+            <p class="m-value">38 · Medium risk</p>
+            <p class="m-asof">Sentry status is in the same text. The address is not.</p>
+          </div>
+          <h3 class="m-label">Alerts</h3>
+          <p class="m-value">A short text when you park: the score, and whether Sentry is confirmed on.</p>
+        </article>
+
+        <article class="m-card">
+          <h3 class="m-label">My Car</h3>
+          <p class="m-value">Battery, range, charging, locks and climate in one clean tab.</p>
+        </article>
       </div>
     </div>
-    <aside class="score" aria-label="Score preview">
-      <p class="numeral">46</p>
-      <p class="score-name">Watchful</p>
-      <hr>
-      <p class="suggest">Suggest Sentry ON</p>
-      <p class="place"><strong>Office garage</strong> · Coral Gables</p>
-      <p class="policy">Automatic Sentry is off by default. You can turn Sentry on or off yourself from the app. Compline may briefly wake your car to change Sentry, and never sends other commands without your say-so.</p>
-    </aside>
   </section>
 
-  <section class="wrap block" id="how">
-    <h2>How it works</h2>
-    <p class="sub">Three steps. Your Tesla account, your virtual key, your home pin. Fleet Telemetry streams park data to our server — not TeslaFi for testers.</p>
-    <ol class="steps">
-      <li>
-        <span class="step-num" aria-hidden="true">1</span>
-        <div>
-          <h3>Sign in with Tesla</h3>
-          <p>OAuth with Tesla Fleet API. We never see your Tesla password. You pick which car.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step-num" aria-hidden="true">2</span>
-        <div>
-          <h3>Add the virtual key</h3>
-          <p>In the Tesla app, open <strong>tesla.com/_ak/getcompline.app</strong> and approve Compline’s key. Required for Telemetry.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step-num" aria-hidden="true">3</span>
-        <div>
-          <h3>Pin home &amp; pick a mode</h3>
-          <p>Home is left out of scoring. Choose Relaxed, Balanced, or Cautious. Add a phone for park texts later.</p>
-        </div>
-      </li>
-    </ol>
+  <section class="m-section" id="how" aria-labelledby="how-title">
+    <div class="m-wrap">
+      <h2 id="how-title">How it works</h2>
+      <ol class="m-steps">
+        <li>
+          <span class="m-num" aria-hidden="true">1</span>
+          <div>
+            <h3>Connect your Tesla</h3>
+            <p>Official Tesla sign-in. We never see your password.</p>
+          </div>
+        </li>
+        <li>
+          <span class="m-num" aria-hidden="true">2</span>
+          <div>
+            <h3>Park like normal</h3>
+            <p>Compline scores the spot.</p>
+          </div>
+        </li>
+        <li>
+          <span class="m-num" aria-hidden="true">3</span>
+          <div>
+            <h3>Sentry goes on when it matters</h3>
+            <p>And you get a text.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="m-more"><a class="m-text" href="/how-it-works/">Full details</a></p>
+    </div>
   </section>
 
-  <section class="wrap block">
-    <h2>What Compline will and won’t do</h2>
-    <p class="sub">Designed to sit next to the Tesla app — dark, quiet, and honest about blank cities.</p>
-    <ul class="rows">
-      <li><strong>Automatic Sentry is off by default.</strong> You can turn Sentry on or off yourself from the app. Compline may briefly wake your car to change Sentry, and never sends other commands without your say-so.</li>
-      <li><strong>Your data, your car.</strong> Location and Telemetry stay on our server for your account. Encrypted Tesla tokens.</li>
-      <li><strong>Blank cities are honest.</strong> No crime feed yet means default Sentry ON until we have data — including Aventura today.</li>
-      <li><strong>Revoke anytime.</strong> Remove the virtual key in the car’s Locks screen, or revoke Compline in your Tesla account.</li>
-    </ul>
-  </section>
-
-  <section class="wrap block close">
-    <h2>Friend testers welcome</h2>
-    <p>Private beta first. Public onboarding opens after Tesla’s third-party registration is complete.</p>
+  <section class="m-section m-end" aria-labelledby="beta-title">
+    <div class="m-wrap">
+      <div class="m-card m-beta">
+        <h2 id="beta-title">Join the Beta</h2>
+        <p class="m-value">Early access for South Florida Tesla owners. Help shape what we build.</p>
+        <p class="m-note">Miami-Dade, Broward, and Palm Beach.</p>
+        <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
+<footer class="m-foot">
+  <div class="m-wrap m-foot-inner">
     <div>
-      <div>Compline · keeps watch while you sleep.</div>
-      <div>Contact: <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a></div>
+      <p>Compline · keeps watch while you sleep.</p>
+      <p>Not affiliated with Tesla.</p>
+      <p>Contact <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a></p>
     </div>
-    <nav aria-label="Legal">
+    <nav aria-label="Footer">
+      <a href="/how-it-works/">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
       <a href="/sms.html">SMS</a>
