@@ -138,7 +138,7 @@
           <p>Use less battery and know your car is watched where it counts.</p>
         </li>
       </ol>
-      <p class="m-more"><a class="m-text" href="/how-it-works/">How it works</a></p>
+      <a class="m-linkrow" href="/how-it-works/">See how it works</a>
     </div>
   </section>
 
@@ -154,46 +154,22 @@
 
   <section class="m-section" id="savings" aria-labelledby="savings-title">
     <div class="m-wrap">
-      <h2 id="savings-title">Estimated savings</h2>
-      <p class="m-lede">Estimated battery and money saved if Sentry stays off for the hours in this example.</p>
-      <p class="m-note">Parked 14 hours a day. 4 of those hours are treated as risky, so Sentry stays off for the other 10. The 4 hours are an example, not a measured Compline average.</p>
-      <div class="m-savings">
-        <article class="m-card">
-          <h3 class="m-label">Estimated · Battery</h3>
-          <p class="m-value">90 kWh a month</p>
-          <p class="m-year">1,095 kWh a year</p>
-          <p class="m-assume">300 W for those 10 hours. 300 W is 7.2 kWh over 24 hours, the owner figure <a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek cited on 22 Feb 2024</a>. Not a Tesla specification. The <a href="https://www.tesla.com/ownersmanual/models/en_us/GUID-56703182-8191-4DAE-AF07-2FDC0EB64663.html">Model S owner's manual</a> says power use may increase with Sentry on, and does not give watts.</p>
-        </article>
-        <article class="m-card">
-          <h3 class="m-label">Estimated · Money</h3>
-          <p class="m-value">$16.34 a month</p>
-          <p class="m-year">$198.85 a year</p>
-          <p class="m-assume">90 kWh × 18.16¢/kWh. U.S. residential average, <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_3">EIA Electric Power Monthly Table 5.3</a>, August 2026 (preliminary).</p>
-        </article>
-        <article class="m-card">
-          <h3 class="m-label">Estimated · Range</h3>
-          <p class="m-value">360 miles a month</p>
-          <p class="m-year">4,380 miles a year</p>
-          <p class="m-assume">90 kWh ÷ 0.25 kWh/mi. <a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=49743">EPA lists 25 kWh/100 mi</a> for the 2026 Tesla Model Y Long Range RWD.</p>
-        </article>
-        <article class="m-card">
-          <h3 class="m-label">Estimated · Supercharger time to put that energy back</h3>
-          <p class="m-value">21.6 minutes a month</p>
-          <p class="m-year">262.8 minutes a year</p>
-          <p class="m-assume">90 kWh ÷ 250 kW × 60, at <a href="https://www.tesla.com/support/charging/supercharging">Tesla's published V3 peak of 250 kW</a>. Real sessions are often slower, so this is a short estimate of the time.</p>
-        </article>
-      </div>
-      <div class="m-math">
-        <p>3.00 kWh/day = 10 hours × 300 W ÷ 1,000</p>
-        <p>90 kWh/month = 3.00 × 30. 1,095 kWh/year = 3.00 × 365</p>
-        <p>$16.34/month from 90 × $0.1816 = $16.344. $198.85/year from 1,095 × $0.1816 = $198.852</p>
-        <p>360 miles/month = 90 ÷ 0.25. 4,380 miles/year = 1,095 ÷ 0.25</p>
-        <p>21.6 minutes/month = 90 ÷ 250 × 60. 262.8 minutes/year = 1,095 ÷ 250 × 60</p>
-        <p>3.36% of one EPA-rated full charge a day = 3.00 ÷ 89.25 kWh. 89.25 kWh = 357 miles × 0.25 kWh/mi. That is rated energy, not a pack size.</p>
-      </div>
-      <p class="m-note">In February 2024, Tesla's Drew Baglino said the team was working to cut Sentry power by about 40%. This example does not apply that cut. Today's draw may be lower.</p>
-      <p class="m-note">Example estimate; your results vary. In the app, you see your car's real numbers.</p>
-      <p class="m-more"><a class="m-text" href="/how-it-works/#savings">See the full estimate</a></p>
+      <h2 id="savings-title" class="m-sr">Estimated savings</h2>
+      <ul class="m-strip">
+        <li>
+          <p class="m-label">Estimated</p>
+          <p class="m-strip-num">~90 kWh a month</p>
+        </li>
+        <li>
+          <p class="m-label">Estimated</p>
+          <p class="m-strip-num">~$198 a year</p>
+        </li>
+        <li>
+          <p class="m-label">Estimated</p>
+          <p class="m-strip-num">~4,380 miles of range a year</p>
+        </li>
+      </ul>
+      <p class="m-note">Example: Sentry off 10 of 14 parked hours. <a href="/how-it-works/#savings">See the math</a></p>
     </div>
   </section>
 
