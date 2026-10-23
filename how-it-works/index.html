@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>How it works · Compline</title>
-<meta name="description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
+<meta name="description" content="How Compline decides when Sentry should be on, where it works, and how the savings estimate is built. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
 <meta property="og:title" content="How it works · Compline">
-<meta property="og:description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
+<meta property="og:description" content="How Compline decides when Sentry should be on, where it works, and how the savings estimate is built. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/how-it-works/">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How it works · Compline">
-<meta name="twitter:description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
+<meta name="twitter:description" content="How Compline decides when Sentry should be on, where it works, and how the savings estimate is built. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
@@ -59,18 +59,18 @@
 </header>
 
 <main id="content" class="m-wrap m-narrow m-section m-end">
-  <p class="m-kicker">For Tesla owners</p>
   <h1>How it works</h1>
-  <p class="m-lede">Compline scores every spot you park and turns Sentry Mode on when the spot calls for it.</p>
+  <p class="m-lede">Compline knows which parking spots are worth watching, and turns Sentry Mode on and off for you.</p>
 
   <div class="m-prose">
-    <h2>The score</h2>
+    <h2>How does Compline decide?</h2>
+    <p>Every time you park, Compline scores that spot from 0 to 100 using local crime reports, parked-car crashes, how busy and well lit the area is, and the time of day.</p>
     <div class="m-card">
       <div class="m-score-layout">
         <ul class="m-inputs">
           <li>Local crime reports</li>
           <li>Parked-car crashes</li>
-          <li>Area and foot traffic</li>
+          <li>How busy the area is</li>
           <li>Lighting</li>
           <li>Time of day</li>
         </ul>
@@ -82,136 +82,66 @@
           <p class="m-score">38</p>
         </div>
       </div>
-      <p>Those inputs feed a score from 0 to 100. The app colors it Quiet, Watchful, Elevated, or Hot.</p>
-      <ul class="m-bands" aria-label="Score bands">
+      <ul class="m-bands" aria-label="Score colors">
         <li><span class="m-dot m-dot-quiet" aria-hidden="true"></span>Quiet</li>
         <li><span class="m-dot m-dot-watchful" aria-hidden="true"></span>Watchful</li>
         <li><span class="m-dot m-dot-elevated" aria-hidden="true"></span>Elevated</li>
         <li><span class="m-dot m-dot-hot" aria-hidden="true"></span>Hot</li>
       </ul>
-      <p>The ring above is the demo Now screen: score 38, labeled Medium risk on that screen. It is a sample, not a typical park.</p>
-      <p>A score is an estimate from public data. It is not a promise that the car is safe, and it is not insurance.</p>
     </div>
+    <p>You'll see that score colored Quiet, Watchful, Elevated, or Hot, and it's an estimate, not a promise your car is safe.</p>
+    <p>The ring above is our demo: a score of 38, shown as medium risk, on a sample spot.</p>
 
-    <h2>Where it's live</h2>
-    <div class="m-card">
-      <ul class="m-counties">
-        <li>Miami-Dade</li>
-        <li>Broward</li>
-        <li>Palm Beach</li>
-      </ul>
-      <p>Where a city has no local data, Compline suggests leaving Sentry on.</p>
-    </div>
+    <h2>Where does it work?</h2>
+    <p>You can use Compline in Miami-Dade, Broward, and Palm Beach.</p>
+    <p>If we don't have much local data for a spot, Compline suggests leaving Sentry on.</p>
 
-    <h2>Sentry, on and off</h2>
-    <div class="m-card">
-      <ol class="m-timeline">
-        <li>
-          <h3>Riskier spot</h3>
-          <p>Sentry turns on.</p>
-        </li>
-        <li>
-          <h3>Calmer spot</h3>
-          <p>Sentry turns off.</p>
-        </li>
-        <li>
-          <h3>Home</h3>
-          <p>On and off times you set. More saved places later.</p>
-        </li>
-      </ol>
-      <p>Auto-Sentry stays off until you turn it on in Settings. You can turn it off again.</p>
-      <p>Connecting a car uses Tesla sign-in. We never see your Tesla password. You approve a virtual key at <a href="https://tesla.com/_ak/getcompline.app">tesla.com/_ak/getcompline.app</a>. Car data is sent only after you approve it for that vehicle.</p>
-      <p>After that, Compline reads park signals: location, gear, lock, Sentry state, and battery. The Now screen shows your latest park. Location history is kept for 90 days by default, and you can change that on your account page.</p>
-      <p>For parking, Compline turns Sentry Mode on or off. This page is not a remote for locks, climate, or driving.</p>
-    </div>
+    <h2>Can I set my own schedule?</h2>
+    <p>Compline turns Sentry on where your car needs watching and off where it doesn't, or you can set your own on and off times at Home.</p>
+    <ol class="m-timeline">
+      <li><p>Sentry turns on at a riskier spot.</p></li>
+      <li><p>It stays off at a calmer one.</p></li>
+      <li><p>You can set on and off times at Home.</p></li>
+    </ol>
+    <p>More saved places are coming later, and this stays off until you turn it on.</p>
+    <p>You sign in with Tesla, then approve Compline in the Tesla app, and you can delete your account anytime.</p>
 
-    <h2>Alerts</h2>
-    <div class="m-card">
-      <p>You get a text when you park. It includes the spot's score and Sentry status, not the address. You see the spot in the app.</p>
-      <p>If you allow it, the same alert can also arrive as a push notification.</p>
-    </div>
+    <h2>What will I hear from it?</h2>
+    <p>We'll text you when you park.</p>
+    <p>No calls, no spam.</p>
+    <p>You'll get the spot's score and whether Sentry is on, not the address.</p>
 
-    <h2 id="savings">Estimated savings</h2>
-    <div class="m-card" id="est-live" aria-live="polite">
-      <p>Estimated battery and money saved if Sentry runs only during the risky hours in this example, instead of the whole time the car is parked.</p>
-      <label class="m-label" for="parked-hours">Hours parked per day</label>
+    <h2 id="savings">How much can it save?</h2>
+    <div id="est-live" aria-live="polite">
+      <p>Left on around the clock, Sentry can use about 216 kWh a month. Compline keeps more of that for driving.</p>
+      <p>That 216 is 7.2 kWh a day times 30 days, and 7.2 kWh is 24 hours at 300 watts, from owner reports <a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek cited on 22 Feb 2024</a>. Tesla doesn't publish a watt figure, and that same note said a cut was in the works, so today's use may be lower.</p>
+      <label class="m-ask" for="parked-hours">How many hours a day is the car parked?</label>
       <input id="parked-hours" class="m-range" type="range" min="0" max="24" step="1" value="14" aria-describedby="est-readout">
-      <p class="m-note" id="est-readout">14 hours parked. 4 of them are treated as risky. Sentry stays off for 10 hours.</p>
-      <p class="m-assume" id="est-hours-note">The 4 risky hours are an example, not a measured Compline average. Move the control to change the parked hours. The risky hours stay at 4.</p>
-
-      <div class="m-savings">
-        <article class="m-card m-inset">
-          <h3 class="m-label">Estimated · Battery</h3>
-          <p class="m-value"><span id="est-kwh-day">3.00</span> kWh a day</p>
-          <p class="m-year"><span id="est-kwh-month">90</span> kWh a month · <span id="est-kwh-year">1,095</span> kWh a year</p>
-          <p class="m-assume">300 W for each hour Sentry stays off. 300 W is 7.2 kWh over 24 hours, the owner figure Electrek cited on 22 Feb 2024. Not a Tesla specification.</p>
-        </article>
-        <article class="m-card m-inset">
-          <h3 class="m-label">Estimated · Share of a charge</h3>
-          <p class="m-value"><span id="est-pct-day">3.36</span>% a day</p>
-          <p class="m-year">Of one EPA-rated full charge</p>
-          <p class="m-assume">kWh/day ÷ 89.25 kWh. 89.25 = 357 miles × 0.25 kWh/mi for the 2026 Model Y Long Range RWD. Rated energy, not a pack size.</p>
-        </article>
-        <article class="m-card m-inset">
-          <h3 class="m-label">Estimated · Money</h3>
-          <p class="m-value"><span id="est-usd-month">$51.30-$56.70</span> a month</p>
-          <p class="m-year"><span id="est-usd-day">$1.71-$1.89</span> a day · <span id="est-usd-year">$624.15-$689.85</span> a year</p>
-          <p class="m-assume">Supercharger price $0.57-$0.63/kWh, US average from <a href="https://electrek.co/2026/10/13/tesla-still-leads-us-supercharger-growth-but-its-raised-prices/">2026 price trackers</a>; varies by station, state and time of day.</p>
-          <p class="m-assume">If you charge at home, the same energy is priced at 18.16¢/kWh, the U.S. residential average for August 2026 (EIA).</p>
-        </article>
-        <article class="m-card m-inset">
-          <h3 class="m-label">Estimated · Range</h3>
-          <p class="m-value"><span id="est-mi-month">360</span> miles a month</p>
-          <p class="m-year"><span id="est-mi-day">12</span> miles a day · <span id="est-mi-year">4,380</span> miles a year</p>
-          <p class="m-assume">kWh ÷ 0.25 kWh/mi, the same EPA 25 kWh/100 mi figure.</p>
-        </article>
-        <article class="m-card m-inset">
-          <h3 class="m-label">Estimated · Supercharger time to put that energy back</h3>
-          <p class="m-value"><span id="est-min-month">21.6</span> minutes a month</p>
-          <p class="m-year"><span id="est-min-day">0.72</span> minutes a day · <span id="est-min-year">262.8</span> minutes a year</p>
-          <p class="m-assume">kWh ÷ 250 kW × 60, at Tesla's published V3 peak of 250 kW. Real sessions are often slower, so this is a short estimate of the time.</p>
-        </article>
-      </div>
-
+      <p id="est-readout">You're parked 14 hours. In this example, 4 of those hours are risky enough for Sentry, so it stays off for 10 hours.</p>
+      <p>That's an estimated <span id="est-kwh-month">90</span> kWh a month and <span id="est-kwh-year">1,095</span> kWh a year, or about <span id="est-mi-month">360</span> miles a month and <span id="est-mi-year">4,380</span> miles a year.</p>
+      <p>The dollar range assumes Supercharger prices of $0.57 to $0.63 per kWh, so this is an estimated <span id="est-usd-month">$51.30-$56.70</span> a month and <span id="est-usd-year">$624.15-$689.85</span> a year. What you save depends on how often Compline switches Sentry off for you.</p>
+      <p>Putting that energy back at Tesla's published 250 kW peak would take an estimated <span id="est-min-month">21.6</span> minutes a month. The app shows your car's real numbers.</p>
+      <p class="m-baseline">216 kWh/month = 7.2 kWh/day × 30. 7.2 kWh/day = 24 hours × 300 W ÷ 1,000.</p>
       <div class="m-math" id="est-math">
         <p>3.00 kWh/day = 10 hours × 300 W ÷ 1,000</p>
         <p>90 kWh/month = 3.00 × 30. 1,095 kWh/year = 3.00 × 365</p>
         <p>$1.71-$1.89/day from 3.00 × $0.57 = $1.71 and 3.00 × $0.63 = $1.89. $51.30-$56.70/month from 90 × $0.57 = $51.30 and 90 × $0.63 = $56.70. $624.15-$689.85/year from 1,095 × $0.57 = $624.15 and 1,095 × $0.63 = $689.85</p>
         <p>12 miles/day = 3.00 ÷ 0.25. 360 miles/month = 90 ÷ 0.25. 4,380 miles/year = 1,095 ÷ 0.25</p>
         <p>0.72 minutes/day = 3.00 ÷ 250 × 60. 21.6 minutes/month = 90 ÷ 250 × 60. 262.8 minutes/year = 1,095 ÷ 250 × 60</p>
-        <p>3.36% a day = 3.00 ÷ 89.25</p>
       </div>
-      <p class="m-note">In February 2024, Tesla's Drew Baglino said the team was working to cut Sentry power by about 40%. This example does not apply that cut. Today's draw may be lower.</p>
-      <p class="m-note">Example estimate; your results vary. In the app, you see your car's real numbers.</p>
-    </div>
-
-    <h2>Sources</h2>
-    <div class="m-card">
+      <p>If you charge at home instead, the U.S. residential average was 18.16¢/kWh in August 2026.</p>
       <ul class="m-sources">
-        <li><a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek, 22 Feb 2024</a>. Owner reports of 7.2 kWh in a day with Sentry on, and Drew Baglino's post that the team was working to cut that use by about 40%.</li>
-        <li><a href="https://www.tesla.com/ownersmanual/models/en_us/GUID-56703182-8191-4DAE-AF07-2FDC0EB64663.html">Tesla Model S owner's manual, Sentry Mode</a>. “Power consumption may increase when Sentry Mode is active.” No watt figure.</li>
-        <li><a href="https://electrek.co/2026/10/13/tesla-still-leads-us-supercharger-growth-but-its-raised-prices/">Electrek, 13 Oct 2026</a>, citing Paren’s Q3 2026 U.S. fast-charging report. Tesla’s non-member Supercharger average was 56.9¢/kWh. At time-of-use stations, peak rates averaged 63.7¢/kWh and off-peak 43.8¢. This example uses $0.57-$0.63/kWh as a rounded band around those two figures. The same report’s member average was 39.6¢/kWh.</li>
-        <li><a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_3">EIA Electric Power Monthly, Table 5.3</a>. Residential average 18.16¢/kWh in August 2026. Preliminary. Released 23 Oct 2026. Used only for the home-charging line.</li>
-        <li><a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=49743">fueleconomy.gov, 2026 Tesla Model Y Long Range RWD</a>. 25 kWh/100 mi and 357 miles total range.</li>
-        <li><a href="https://www.tesla.com/support/charging/supercharging">Tesla Support, Supercharging</a>. V3 Superchargers peak at up to 250 kW. Speed varies with the pack, state of charge, temperature, and the car. Tesla does not publish one national price; the price on the station pin varies.</li>
+        <li><a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek, 22 Feb 2024</a>, for the 7.2 kWh a day owner reports and Drew Baglino's note that the team was working on about a 40% cut. The <a href="https://www.tesla.com/ownersmanual/models/en_us/GUID-56703182-8191-4DAE-AF07-2FDC0EB64663.html">Model S owner's manual</a> says power use may increase when Sentry is on, and doesn't give watts.</li>
+        <li><a href="https://electrek.co/2026/10/13/tesla-still-leads-us-supercharger-growth-but-its-raised-prices/">Electrek, 13 Oct 2026</a>, citing Paren's Q3 2026 report: a 56.9¢ non-member Supercharger average, and 63.7¢ at peak where the price changes by time of day. This example rounds that pair to $0.57-$0.63/kWh. The same report's member average was 39.6¢/kWh.</li>
+        <li><a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_3">EIA Table 5.3</a>, August 2026 residential average of 18.16¢/kWh, for the home-charging line only.</li>
+        <li><a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=49743">fueleconomy.gov</a>, 25 kWh/100 mi for the 2026 Tesla Model Y Long Range RWD, which is where the miles come from.</li>
+        <li><a href="https://www.tesla.com/support/charging/supercharging">Tesla Support</a> says V3 Superchargers peak at up to 250 kW, and that a real session is often slower. Tesla doesn't publish one national price.</li>
       </ul>
     </div>
 
-    <h2>Questions</h2>
-    <div class="m-card">
-      <h3>Is it beta?</h3>
-      <p>Yes. Early access in Miami-Dade, Broward, and Palm Beach.</p>
-      <h3>Does it drain the battery?</h3>
-      <p>Sentry Mode is what draws the power. Compline leaves it off where the risk is low. Turning Sentry on or off can briefly wake the car. The figures above are an example, not your car.</p>
-      <h3>Can I turn it off or delete my account?</h3>
-      <p>Yes. Auto-Sentry stays off until you turn it on, and you can turn it off in Settings. You can remove the virtual key and revoke Compline in your Tesla account. You can delete the account from the account page, or email <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>.</p>
-    </div>
-  </div>
-
-  <div class="m-card m-beta">
-    <h2>Join the Beta</h2>
-    <p class="m-note">Early access · Miami-Dade, Broward and Palm Beach.</p>
-    <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
+    <h2>Want in early?</h2>
+    <p>We're opening Compline to South Florida drivers first.</p>
+    <p class="m-more"><a class="m-btn" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a></p>
   </div>
 </main>
 
@@ -223,10 +153,8 @@
     </div>
     <nav aria-label="Footer">
       <a href="https://app.getcompline.app/">Open app</a>
-      <a href="/how-it-works/" aria-current="page">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a href="/sms.html">SMS</a>
     </nav>
   </div>
 </footer>

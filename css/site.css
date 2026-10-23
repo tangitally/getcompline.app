@@ -652,6 +652,7 @@ body.mkt h2 {
 .m-text:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .m-hero { padding-top: 24px; }
+.m-hero h1 { margin-top: 0; }
 .m-hero-grid { display: grid; gap: 24px; }
 .m-phone {
   margin: 0;
@@ -843,7 +844,15 @@ body.mkt h2 {
 
 .m-beta .m-btn { margin-top: 16px; }
 
-.m-prose { display: grid; gap: 0; margin-top: 32px; }
+.m-prose { display: block; margin-top: 32px; }
+.m-prose > p + p,
+.m-prose > div > p + p,
+.m-prose > .m-card + p,
+.m-prose > .m-timeline + p { margin-top: 12px; }
+.m-prose > p + .m-card,
+.m-prose > p + .m-timeline,
+.m-prose > .m-timeline { margin-top: 12px; }
+.m-prose .m-sources { margin-top: 16px; }
 .m-prose + .m-card { margin-top: 32px; }
 .m-prose h2 { margin: 32px 0 12px; }
 .m-prose h2:first-child { margin-top: 0; }
@@ -1071,13 +1080,20 @@ body.mkt a.m-menu-link[aria-current="page"] { color: var(--accent); }
   margin: 0;
 }
 .m-flow .m-num { position: relative; z-index: 1; background: var(--bg); }
-.m-flow p {
+.m-flow h3 {
   margin: 4px 0 0;
   color: var(--ink);
   font-size: 17px;
   line-height: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+.m-flow p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
 }
 
 .m-year {
@@ -1208,6 +1224,24 @@ body.mkt a.m-menu-link[aria-current="page"] { color: var(--accent); }
   margin: 8px 0 0;
   accent-color: var(--accent);
 }
+.m-ask {
+  display: block;
+  margin: 16px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.m-baseline,
+.m-prose .m-baseline,
+.m-prose p.m-baseline {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
 
 body.mkt a.m-linkrow {
   display: flex;
@@ -1270,7 +1304,7 @@ body.mkt a.m-linkrow:hover { color: var(--accent); }
   .m-counties { grid-template-columns: 1fr 1fr; }
   .m-counties { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .m-flow {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
   }
   .m-flow::before {
@@ -1283,7 +1317,8 @@ body.mkt a.m-linkrow:hover { color: var(--accent); }
   }
   .m-flow li { display: block; }
   .m-flow .m-num { margin-bottom: 12px; }
-  .m-flow p { margin-top: 0; }
+  .m-flow h3 { margin-top: 0; }
+  .m-flow p { margin-top: 4px; }
   .m-score-layout { grid-template-columns: minmax(0, 1fr) 168px; }
   .m-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .m-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }

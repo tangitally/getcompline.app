@@ -65,7 +65,7 @@
     var miMonthText = grouped(miMonth, miMonth % 1 === 0 ? 0 : 2);
     var miYearText = grouped(miYear, miYear % 1 === 0 ? 0 : 2);
 
-    setText("est-readout", parked + " hours parked. 4 of them are treated as risky. Sentry stays off for " + savedH + (savedH === 1 ? " hour." : " hours."));
+    setText("est-readout", "You're parked " + parked + (parked === 1 ? " hour" : " hours") + ". In this example, 4 of those hours are risky enough for Sentry, so it stays off for " + savedH + (savedH === 1 ? " hour." : " hours."));
     setText("est-kwh-day", kwhDayText);
     setText("est-kwh-month", kwhMonthText);
     setText("est-kwh-year", kwhYearText);
