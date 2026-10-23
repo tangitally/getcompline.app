@@ -920,6 +920,56 @@ body.mkt h2 {
 .m-prose a { text-underline-offset: 2px; }
 .m-end { padding-bottom: 24px; }
 
+.m-save { margin-top: 24px; scroll-margin-top: 72px; }
+.m-prose .m-save h2 { margin-top: 0; }
+.m-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.m-prose .m-stats li,
+.m-prose .m-stats li + li {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-1);
+  min-width: 0;
+}
+.m-prose .m-stat-num {
+  margin: 0;
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.m-prose .m-stat-per {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+.m-prose .m-stat-label {
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+}
+.m-prose .m-save .m-note {
+  margin-top: 16px;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
 .m-foot {
   margin-top: 24px;
   padding: 24px 0 32px;
@@ -959,6 +1009,10 @@ body.mkt h2 {
   }
   .m-hero { padding-top: 32px; }
   .m-section { padding-top: 32px; }
+  .m-prose .m-stat-num {
+    font-size: 40px;
+    line-height: 44px;
+  }
   .m-nav { gap: 16px; }
   .m-nav-link { display: inline-flex; }
   .m-hero-grid {
