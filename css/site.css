@@ -937,3 +937,301 @@ body.mkt h2 {
     stroke-dashoffset: 296.06;
   }
 }
+
+/* Homepage flow, value props, trust, estimate, and the header menu.
+   Still on the 4/8/12/16/24/32 scale. No shadows. */
+
+.m-nav .m-btn { white-space: nowrap; }
+.m-logo,
+.m-menu,
+.m-nav .m-btn { flex: none; }
+
+.m-menu { position: relative; }
+.m-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.m-menu-btn::-webkit-details-marker { display: none; }
+.m-menu-btn::marker { content: ""; }
+.m-burger,
+.m-close {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.m-menu[open] .m-burger,
+.m-menu:not([open]) .m-close { display: none; }
+.m-menu-panel {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 4;
+  display: grid;
+  min-width: 180px;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-1);
+}
+body.mkt a.m-menu-link {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 12px;
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+body.mkt a.m-menu-link:hover,
+body.mkt a.m-menu-link[aria-current="page"] { color: var(--accent); }
+
+.m-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+}
+.m-props,
+.m-savings,
+.m-facts,
+.m-counties {
+  display: grid;
+  gap: 12px;
+}
+.m-props h3 {
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.m-props p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 20px;
+}
+.m-facts,
+.m-counties {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-facts li,
+.m-counties li {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-1);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.m-flow {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-flow::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: var(--line);
+}
+.m-flow li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin: 0;
+}
+.m-flow .m-num { position: relative; z-index: 1; background: var(--bg); }
+.m-flow p {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.m-year {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.m-card .m-year,
+.m-prose .m-card p.m-year {
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.m-assume,
+.m-prose .m-card p.m-assume {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.m-assume a { text-underline-offset: 2px; }
+
+.m-math {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+.m-math p,
+.m-prose .m-math p,
+.m-prose .m-card .m-math p,
+.m-prose .m-card .m-math p + p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.m-math p + p,
+.m-prose .m-card .m-math p + p { margin-top: 4px; }
+
+.m-score-layout {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+}
+.m-inputs {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-inputs li,
+.m-prose .m-inputs li,
+.m-prose .m-inputs li + li {
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.m-prose .m-bands li,
+.m-prose .m-bands li + li {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.m-timeline {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-timeline li,
+.m-prose .m-timeline li,
+.m-prose .m-timeline li + li {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-2);
+}
+.m-timeline h3,
+.m-prose .m-timeline h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.m-timeline p,
+.m-prose .m-timeline p,
+.m-prose .m-card .m-timeline p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.m-prose .m-counties,
+.m-prose .m-facts { margin: 0; }
+.m-prose .m-counties li,
+.m-prose .m-counties li + li {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 16px;
+}
+.m-counties { margin-bottom: 12px; }
+.m-sources { margin: 0; padding: 0; list-style: none; }
+.m-inset { background: var(--surface-2); }
+.m-savings { margin-top: 16px; }
+.m-range {
+  display: block;
+  width: 100%;
+  height: 32px;
+  margin: 8px 0 0;
+  accent-color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+  .m-menu { display: none; }
+  .m-props { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .m-savings { grid-template-columns: 1fr 1fr; }
+  .m-savings > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .m-facts,
+  .m-counties { grid-template-columns: 1fr 1fr; }
+  .m-counties { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .m-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .m-flow::before {
+    left: 16px;
+    right: 16px;
+    top: 16px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+  .m-flow li { display: block; }
+  .m-flow .m-num { margin-bottom: 12px; }
+  .m-flow p { margin-top: 0; }
+  .m-score-layout { grid-template-columns: minmax(0, 1fr) 168px; }
+  .m-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

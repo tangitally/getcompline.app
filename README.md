@@ -3,8 +3,8 @@
 Public site for Compline (GitHub Pages apex `getcompline.app`).
 
 Pages:
-- `/` (`index.html`) — landing. Primary button says “Join the Beta” and still goes to `https://app.getcompline.app/login?mode=signup`. Footer contact: privacy@getcompline.app
-- `/how-it-works/` — score, Auto-Sentry, and beta details
+- `/` (`index.html`) — landing. Primary button says “Join the Beta” and still goes to `https://app.getcompline.app/login?mode=signup`. “Open app” goes to `https://app.getcompline.app/`. Footer contact: privacy@getcompline.app
+- `/how-it-works/` — score, markets, Auto-Sentry, text alerts, and the cited savings example. `/js/estimate.js` updates that example when the hours control moves.
 - `/signup.html` — retired waitlist page. Its button still says “Join the waitlist” and goes to `https://app.getcompline.app/login?mode=signup`
 - `/sms.html` — SMS opt-in. Posts JSON to `https://app.getcompline.app/sms-optin` (`consent_version` `sms-2026-10-22`). Without JavaScript the form posts to that same URL.
 - `/sms-thanks.html` — confirmation page for the no-JavaScript form redirect

@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>Compline — Sentry when it matters</title>
-<meta name="description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
+<meta name="description" content="Compline scores every spot you park and turns Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
 <meta property="og:title" content="Compline: Sentry when it matters">
-<meta property="og:description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
+<meta property="og:description" content="Compline scores every spot you park and turns Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Compline: Sentry when it matters">
-<meta name="twitter:description" content="Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
+<meta name="twitter:description" content="Compline scores every spot you park and turns Sentry Mode on when the spot calls for it. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
@@ -38,7 +38,23 @@
     </a>
     <nav class="m-nav" aria-label="Primary">
       <a class="m-nav-link" href="/how-it-works/">How it works</a>
+      <a class="m-nav-link" href="https://app.getcompline.app/">Open app</a>
       <a class="m-btn" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
+      <details class="m-menu">
+        <summary class="m-menu-btn">
+          <span class="m-sr">Menu</span>
+          <svg class="m-burger" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+          <svg class="m-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </summary>
+        <div class="m-menu-panel">
+          <a class="m-menu-link" href="/how-it-works/">How it works</a>
+          <a class="m-menu-link" href="https://app.getcompline.app/">Open app</a>
+        </div>
+      </details>
     </nav>
   </div>
 </header>
@@ -49,12 +65,11 @@
       <div>
         <p class="m-kicker">For Tesla owners</p>
         <h1 id="hero-title">Sentry when it matters. Battery when it doesn't.</h1>
-        <p class="m-lede">Compline scores how risky your parking spot is and turns Tesla Sentry Mode on when the spot calls for it.</p>
+        <p class="m-lede">Compline scores every spot you park and turns Sentry Mode on when the spot calls for it.</p>
         <div class="m-actions">
           <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
-          <a class="m-text" href="/how-it-works/">How it works</a>
         </div>
-        <p class="m-note">Early access for South Florida Tesla owners. Miami-Dade, Broward, and Palm Beach.</p>
+        <p class="m-note">Early access · Miami-Dade, Broward and Palm Beach.</p>
       </div>
       <figure class="m-phone">
         <img src="/assets/now-screen.webp" width="780" height="1688" alt="Compline Now screen on a demo account. Risk score 38, medium risk, a dark map, and the Sentry battery card. The spot shown is a sample on Lincoln Road in Miami Beach." fetchpriority="high">
@@ -63,56 +78,40 @@
     </div>
   </section>
 
-  <section class="m-section" aria-labelledby="features-title">
+  <section class="m-section" aria-labelledby="props-title">
     <div class="m-wrap">
-      <h2 id="features-title">On the Now screen</h2>
-      <div class="m-grid">
-        <article class="m-card m-span">
-          <div class="m-gauge">
-            <svg viewBox="0 0 168 168" aria-hidden="true">
-              <circle class="m-ring-track" cx="84" cy="84" r="76"></circle>
-              <circle class="m-ring-fill" cx="84" cy="84" r="76"></circle>
-            </svg>
-            <p class="m-score"><span class="m-sr">Risk score </span>38<span class="m-sr"> out of 100</span></p>
-          </div>
-          <h3 class="m-label">Spot risk score</h3>
-          <p class="m-value">Every park gets a 0-100 risk score from local crime, car-damage and time-of-day data.</p>
-          <ul class="m-bands" aria-label="Score bands">
-            <li><span class="m-dot m-dot-quiet" aria-hidden="true"></span>Quiet</li>
-            <li><span class="m-dot m-dot-watchful" aria-hidden="true"></span>Watchful</li>
-            <li><span class="m-dot m-dot-elevated" aria-hidden="true"></span>Elevated</li>
-            <li><span class="m-dot m-dot-hot" aria-hidden="true"></span>Hot</li>
-          </ul>
-          <img class="m-shot" src="/assets/crop-map.webp" width="652" height="242" alt="Dark map of the sample Lincoln Road spot, with a violet marker on the block." loading="lazy">
-          <p class="m-loc">Parked on Lincoln Rd, Miami Beach</p>
-          <p class="m-asof">as of 2:34 PM</p>
-          <p class="m-attr">Map data <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a></p>
-        </article>
-
+      <h2 id="props-title">What it does</h2>
+      <div class="m-props">
         <article class="m-card">
-          <h3 class="m-label">Auto-Sentry</h3>
-          <p class="m-value">Turn it on and Compline switches Sentry on at risky spots for you. Your call, your schedule.</p>
+          <svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
+          </svg>
+          <h3>Protection when it matters</h3>
+          <p>Sentry turns on at riskier spots, not everywhere.</p>
         </article>
-
         <article class="m-card">
-          <img class="m-shot" src="/assets/crop-battery.webp" width="716" height="172" alt="Demo battery card. It reads Sentry off, 0 hours this week." loading="lazy">
-          <h3 class="m-label">Battery saved</h3>
-          <p class="m-value">See your car's real Sentry drain and the hours Compline saved you.</p>
+          <svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="7" y="6" width="10" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+            <path d="M10 4h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+          <h3>Less battery drain</h3>
+          <p>Skip Sentry's drain where the risk is low.</p>
         </article>
-
         <article class="m-card">
-          <div class="m-bubble">
-            <p class="m-label">Text</p>
-            <p class="m-value">38 · Medium risk</p>
-            <p class="m-asof">Sentry status is in the same text. The address is not.</p>
-          </div>
-          <h3 class="m-label">Alerts</h3>
-          <p class="m-value">A short text when you park: the score, and whether Sentry is confirmed on.</p>
+          <svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            <path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h3>Automatic or on your schedule</h3>
+          <p>Let Compline decide, or set your own Home schedule.</p>
         </article>
-
         <article class="m-card">
-          <h3 class="m-label">My Car</h3>
-          <p class="m-value">Battery, range, charging, locks and climate in one clean tab.</p>
+          <svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 6h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H9l-4 3v-3H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+          </svg>
+          <h3>Text alerts</h3>
+          <p>A short text when you park, with the spot's score and Sentry status.</p>
         </article>
       </div>
     </div>
@@ -120,31 +119,81 @@
 
   <section class="m-section" id="how" aria-labelledby="how-title">
     <div class="m-wrap">
-      <h2 id="how-title">How it works</h2>
-      <ol class="m-steps">
+      <h2 id="how-title" class="m-sr">Four steps</h2>
+      <ol class="m-flow">
         <li>
           <span class="m-num" aria-hidden="true">1</span>
-          <div>
-            <h3>Connect your Tesla</h3>
-            <p>Official Tesla sign-in. We never see your password.</p>
-          </div>
+          <p>Create an account.</p>
         </li>
         <li>
           <span class="m-num" aria-hidden="true">2</span>
-          <div>
-            <h3>Park like normal</h3>
-            <p>Compline scores the spot.</p>
-          </div>
+          <p>Connect your Tesla.</p>
         </li>
         <li>
           <span class="m-num" aria-hidden="true">3</span>
-          <div>
-            <h3>Sentry goes on when it matters</h3>
-            <p>And you get a text.</p>
-          </div>
+          <p>Park as usual; each spot gets a risk score and Sentry goes on or off for you.</p>
+        </li>
+        <li>
+          <span class="m-num" aria-hidden="true">4</span>
+          <p>Use less battery and know your car is watched where it counts.</p>
         </li>
       </ol>
-      <p class="m-more"><a class="m-text" href="/how-it-works/">Full details</a></p>
+      <p class="m-more"><a class="m-text" href="/how-it-works/">How it works</a></p>
+    </div>
+  </section>
+
+  <section class="m-section" aria-labelledby="account-title">
+    <div class="m-wrap">
+      <h2 id="account-title">Your account</h2>
+      <ul class="m-facts">
+        <li>Connects through Tesla's official sign-in</li>
+        <li>Delete your account and data anytime</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="m-section" id="savings" aria-labelledby="savings-title">
+    <div class="m-wrap">
+      <h2 id="savings-title">Estimated savings</h2>
+      <p class="m-lede">Estimated battery and money saved if Sentry stays off for the hours in this example.</p>
+      <p class="m-note">Parked 14 hours a day. 4 of those hours are treated as risky, so Sentry stays off for the other 10. The 4 hours are an example, not a measured Compline average.</p>
+      <div class="m-savings">
+        <article class="m-card">
+          <h3 class="m-label">Estimated · Battery</h3>
+          <p class="m-value">90 kWh a month</p>
+          <p class="m-year">1,095 kWh a year</p>
+          <p class="m-assume">300 W for those 10 hours. 300 W is 7.2 kWh over 24 hours, the owner figure <a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek cited on 22 Feb 2024</a>. Not a Tesla specification. The <a href="https://www.tesla.com/ownersmanual/models/en_us/GUID-56703182-8191-4DAE-AF07-2FDC0EB64663.html">Model S owner's manual</a> says power use may increase with Sentry on, and does not give watts.</p>
+        </article>
+        <article class="m-card">
+          <h3 class="m-label">Estimated · Money</h3>
+          <p class="m-value">$16.34 a month</p>
+          <p class="m-year">$198.85 a year</p>
+          <p class="m-assume">90 kWh × 18.16¢/kWh. U.S. residential average, <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_3">EIA Electric Power Monthly Table 5.3</a>, August 2026 (preliminary).</p>
+        </article>
+        <article class="m-card">
+          <h3 class="m-label">Estimated · Range</h3>
+          <p class="m-value">360 miles a month</p>
+          <p class="m-year">4,380 miles a year</p>
+          <p class="m-assume">90 kWh ÷ 0.25 kWh/mi. <a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=49743">EPA lists 25 kWh/100 mi</a> for the 2026 Tesla Model Y Long Range RWD.</p>
+        </article>
+        <article class="m-card">
+          <h3 class="m-label">Estimated · Supercharger time to put that energy back</h3>
+          <p class="m-value">21.6 minutes a month</p>
+          <p class="m-year">262.8 minutes a year</p>
+          <p class="m-assume">90 kWh ÷ 250 kW × 60, at <a href="https://www.tesla.com/support/charging/supercharging">Tesla's published V3 peak of 250 kW</a>. Real sessions are often slower, so this is a short estimate of the time.</p>
+        </article>
+      </div>
+      <div class="m-math">
+        <p>3.00 kWh/day = 10 hours × 300 W ÷ 1,000</p>
+        <p>90 kWh/month = 3.00 × 30. 1,095 kWh/year = 3.00 × 365</p>
+        <p>$16.34/month from 90 × $0.1816 = $16.344. $198.85/year from 1,095 × $0.1816 = $198.852</p>
+        <p>360 miles/month = 90 ÷ 0.25. 4,380 miles/year = 1,095 ÷ 0.25</p>
+        <p>21.6 minutes/month = 90 ÷ 250 × 60. 262.8 minutes/year = 1,095 ÷ 250 × 60</p>
+        <p>3.36% of one EPA-rated full charge a day = 3.00 ÷ 89.25 kWh. 89.25 kWh = 357 miles × 0.25 kWh/mi. That is rated energy, not a pack size.</p>
+      </div>
+      <p class="m-note">In February 2024, Tesla's Drew Baglino said the team was working to cut Sentry power by about 40%. This example does not apply that cut. Today's draw may be lower.</p>
+      <p class="m-note">Example estimate; your results vary. In the app, you see your car's real numbers.</p>
+      <p class="m-more"><a class="m-text" href="/how-it-works/#savings">See the full estimate</a></p>
     </div>
   </section>
 
@@ -152,8 +201,7 @@
     <div class="m-wrap">
       <div class="m-card m-beta">
         <h2 id="beta-title">Join the Beta</h2>
-        <p class="m-value">Early access for South Florida Tesla owners. Help shape what we build.</p>
-        <p class="m-note">Miami-Dade, Broward, and Palm Beach.</p>
+        <p class="m-note">Early access · Miami-Dade, Broward and Palm Beach.</p>
         <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
       </div>
     </div>
@@ -163,11 +211,11 @@
 <footer class="m-foot">
   <div class="m-wrap m-foot-inner">
     <div>
-      <p>Compline · keeps watch while you sleep.</p>
       <p>Not affiliated with Tesla.</p>
       <p>Contact <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a></p>
     </div>
     <nav aria-label="Footer">
+      <a href="https://app.getcompline.app/">Open app</a>
       <a href="/how-it-works/">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>

@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>How it works · Compline</title>
-<meta name="description" content="What goes into a Compline park score, how Auto-Sentry works, and where the beta runs. Not affiliated with Tesla.">
+<meta name="description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Compline">
 <meta property="og:title" content="How it works · Compline">
-<meta property="og:description" content="What goes into a Compline park score, how Auto-Sentry works, and where the beta runs. Not affiliated with Tesla.">
+<meta property="og:description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
 <meta property="og:url" content="https://getcompline.app/how-it-works/">
 <meta property="og:image" content="https://getcompline.app/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How it works · Compline">
-<meta name="twitter:description" content="What goes into a Compline park score, how Auto-Sentry works, and where the beta runs. Not affiliated with Tesla.">
+<meta name="twitter:description" content="How a Compline score is built, where the beta runs, and an example of the battery Sentry would have used. Not affiliated with Tesla.">
 <meta name="twitter:image" content="https://getcompline.app/assets/og.png">
 <meta name="twitter:image:alt" content="Compline. Sentry Mode when the spot needs it, not when it doesn't.">
 <link rel="icon" href="/favicon.ico">
@@ -30,14 +30,30 @@
 <body class="mkt">
 <a class="m-skip" href="#content">Skip to content</a>
 <header class="m-top">
-  <div class="m-wrap m-bar">
+  <div class="m-wrap m-narrow m-bar">
     <a class="m-logo" href="/">
       <img src="/assets/mark-icon.svg" alt="" width="26" height="26">
       <img src="/assets/mark-word.svg" alt="Compline" width="89" height="26">
     </a>
     <nav class="m-nav" aria-label="Primary">
       <a class="m-nav-link" href="/how-it-works/" aria-current="page">How it works</a>
+      <a class="m-nav-link" href="https://app.getcompline.app/">Open app</a>
       <a class="m-btn" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
+      <details class="m-menu">
+        <summary class="m-menu-btn">
+          <span class="m-sr">Menu</span>
+          <svg class="m-burger" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+          <svg class="m-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </summary>
+        <div class="m-menu-panel">
+          <a class="m-menu-link" href="/how-it-works/" aria-current="page">How it works</a>
+          <a class="m-menu-link" href="https://app.getcompline.app/">Open app</a>
+        </div>
+      </details>
     </nav>
   </div>
 </header>
@@ -45,62 +61,154 @@
 <main id="content" class="m-wrap m-narrow m-section m-end">
   <p class="m-kicker">For Tesla owners</p>
   <h1>How it works</h1>
-  <p class="m-lede">Compline scores the spot you just parked and can turn Tesla Sentry Mode on when that spot calls for it.</p>
+  <p class="m-lede">Compline scores every spot you park and turns Sentry Mode on when the spot calls for it.</p>
 
   <div class="m-prose">
     <h2>The score</h2>
     <div class="m-card">
-      <p>Each park gets a score from 0 to 100. It uses local crime, parked-car crashes, and the time of day, along with context for the area: how busy it is, and how it is lit.</p>
-      <p class="m-value">Quiet, Watchful, Elevated, Hot.</p>
-      <p>Those are the four color bands in the app. On the demo Now screen, the same kind of park is also written in plain language, such as “Medium risk.”</p>
+      <div class="m-score-layout">
+        <ul class="m-inputs">
+          <li>Local crime reports</li>
+          <li>Parked-car crashes</li>
+          <li>Area and foot traffic</li>
+          <li>Lighting</li>
+          <li>Time of day</li>
+        </ul>
+        <div class="m-gauge" aria-hidden="true">
+          <svg viewBox="0 0 168 168">
+            <circle class="m-ring-track" cx="84" cy="84" r="76"></circle>
+            <circle class="m-ring-fill" cx="84" cy="84" r="76"></circle>
+          </svg>
+          <p class="m-score">38</p>
+        </div>
+      </div>
+      <p>Those inputs feed a score from 0 to 100. The app colors it Quiet, Watchful, Elevated, or Hot.</p>
+      <ul class="m-bands" aria-label="Score bands">
+        <li><span class="m-dot m-dot-quiet" aria-hidden="true"></span>Quiet</li>
+        <li><span class="m-dot m-dot-watchful" aria-hidden="true"></span>Watchful</li>
+        <li><span class="m-dot m-dot-elevated" aria-hidden="true"></span>Elevated</li>
+        <li><span class="m-dot m-dot-hot" aria-hidden="true"></span>Hot</li>
+      </ul>
+      <p>The ring above is the demo Now screen: score 38, labeled Medium risk on that screen. It is a sample, not a typical park.</p>
       <p>A score is an estimate from public data. It is not a promise that the car is safe, and it is not insurance.</p>
     </div>
 
-    <h2>Where it works</h2>
+    <h2>Where it's live</h2>
     <div class="m-card">
-      <p>Early access covers Miami-Dade, Broward, and Palm Beach. Coverage inside those counties still depends on local records. Where a spot has no local data yet, Compline does not invent a calm score. It leans toward leaving Sentry on.</p>
+      <ul class="m-counties">
+        <li>Miami-Dade</li>
+        <li>Broward</li>
+        <li>Palm Beach</li>
+      </ul>
+      <p>Where a city has no local data, Compline suggests leaving Sentry on.</p>
     </div>
 
-    <h2>Auto-Sentry</h2>
+    <h2>Sentry, on and off</h2>
     <div class="m-card">
-      <p>Auto-Sentry is off until you turn it on. When it is on, Compline can switch Sentry on at a risky spot and off at a calm one. Home and quiet hours follow the schedule you set. You can turn it off again.</p>
-      <p>Changing Sentry can briefly wake the car. Compline is built to leave Sentry off when the spot does not call for it. That is what saves the battery. Sentry Mode itself is what draws power.</p>
-    </div>
-
-    <h2>What Compline reads</h2>
-    <div class="m-card">
-      <p>Connecting a car uses Tesla sign-in. We never see your Tesla password. You approve a virtual key at <a href="https://tesla.com/_ak/getcompline.app">tesla.com/_ak/getcompline.app</a> so park data and Sentry changes can go through. Car data is sent only after you approve it for that vehicle.</p>
-      <p>After that, Compline reads park signals: location, gear, lock, Sentry state, and battery.</p>
-      <p>For parking, Compline turns Sentry Mode on or off. This page is not offering a remote for locks, climate, or driving.</p>
-    </div>
-
-    <h2>Your latest park</h2>
-    <div class="m-card">
-      <p>The Now screen shows where you last parked. Compline is not a trip log.</p>
+      <ol class="m-timeline">
+        <li>
+          <h3>Riskier spot</h3>
+          <p>Sentry turns on.</p>
+        </li>
+        <li>
+          <h3>Calmer spot</h3>
+          <p>Sentry turns off.</p>
+        </li>
+        <li>
+          <h3>Home</h3>
+          <p>On and off times you set. More saved places later.</p>
+        </li>
+      </ol>
+      <p>Auto-Sentry stays off until you turn it on in Settings. You can turn it off again.</p>
+      <p>Connecting a car uses Tesla sign-in. We never see your Tesla password. You approve a virtual key at <a href="https://tesla.com/_ak/getcompline.app">tesla.com/_ak/getcompline.app</a>. Car data is sent only after you approve it for that vehicle.</p>
+      <p>After that, Compline reads park signals: location, gear, lock, Sentry state, and battery. The Now screen shows your latest park. Location history is kept for 90 days by default, and you can change that on your account page.</p>
+      <p>For parking, Compline turns Sentry Mode on or off. This page is not a remote for locks, climate, or driving.</p>
     </div>
 
     <h2>Alerts</h2>
     <div class="m-card">
-      <p>When you park, Compline can text you the score and whether Sentry is confirmed on. The text does not include the address. You see the spot in the app.</p>
+      <p>You get a text when you park. It includes the spot's score and Sentry status, not the address. You see the spot in the app.</p>
+      <p>If you allow it, the same alert can also arrive as a push notification.</p>
+    </div>
+
+    <h2 id="savings">Estimated savings</h2>
+    <div class="m-card" id="est-live" aria-live="polite">
+      <p>Estimated battery and money saved if Sentry runs only during the risky hours in this example, instead of the whole time the car is parked.</p>
+      <label class="m-label" for="parked-hours">Hours parked per day</label>
+      <input id="parked-hours" class="m-range" type="range" min="0" max="24" step="1" value="14" aria-describedby="est-readout">
+      <p class="m-note" id="est-readout">14 hours parked. 4 of them are treated as risky. Sentry stays off for 10 hours.</p>
+      <p class="m-assume" id="est-hours-note">The 4 risky hours are an example, not a measured Compline average. Move the control to change the parked hours. The risky hours stay at 4.</p>
+
+      <div class="m-savings">
+        <article class="m-card m-inset">
+          <h3 class="m-label">Estimated · Battery</h3>
+          <p class="m-value"><span id="est-kwh-day">3.00</span> kWh a day</p>
+          <p class="m-year"><span id="est-kwh-month">90</span> kWh a month · <span id="est-kwh-year">1,095</span> kWh a year</p>
+          <p class="m-assume">300 W for each hour Sentry stays off. 300 W is 7.2 kWh over 24 hours, the owner figure Electrek cited on 22 Feb 2024. Not a Tesla specification.</p>
+        </article>
+        <article class="m-card m-inset">
+          <h3 class="m-label">Estimated · Share of a charge</h3>
+          <p class="m-value"><span id="est-pct-day">3.36</span>% a day</p>
+          <p class="m-year">Of one EPA-rated full charge</p>
+          <p class="m-assume">kWh/day ÷ 89.25 kWh. 89.25 = 357 miles × 0.25 kWh/mi for the 2026 Model Y Long Range RWD. Rated energy, not a pack size.</p>
+        </article>
+        <article class="m-card m-inset">
+          <h3 class="m-label">Estimated · Money</h3>
+          <p class="m-value"><span id="est-usd-month">$16.34</span> a month</p>
+          <p class="m-year"><span id="est-usd-day">$0.54</span> a day · <span id="est-usd-year">$198.85</span> a year</p>
+          <p class="m-assume">kWh × 18.16¢/kWh. U.S. residential average, EIA Electric Power Monthly Table 5.3, August 2026 (preliminary).</p>
+        </article>
+        <article class="m-card m-inset">
+          <h3 class="m-label">Estimated · Range</h3>
+          <p class="m-value"><span id="est-mi-month">360</span> miles a month</p>
+          <p class="m-year"><span id="est-mi-day">12</span> miles a day · <span id="est-mi-year">4,380</span> miles a year</p>
+          <p class="m-assume">kWh ÷ 0.25 kWh/mi, the same EPA 25 kWh/100 mi figure.</p>
+        </article>
+        <article class="m-card m-inset">
+          <h3 class="m-label">Estimated · Supercharger time to put that energy back</h3>
+          <p class="m-value"><span id="est-min-month">21.6</span> minutes a month</p>
+          <p class="m-year"><span id="est-min-day">0.72</span> minutes a day · <span id="est-min-year">262.8</span> minutes a year</p>
+          <p class="m-assume">kWh ÷ 250 kW × 60, at Tesla's published V3 peak of 250 kW. Real sessions are often slower, so this is a short estimate of the time.</p>
+        </article>
+      </div>
+
+      <div class="m-math" id="est-math">
+        <p>3.00 kWh/day = 10 hours × 300 W ÷ 1,000</p>
+        <p>90 kWh/month = 3.00 × 30. 1,095 kWh/year = 3.00 × 365</p>
+        <p>$0.54/day from 3.00 × $0.1816 = $0.5448. $16.34/month from 90 × $0.1816 = $16.344. $198.85/year from 1,095 × $0.1816 = $198.852</p>
+        <p>12 miles/day = 3.00 ÷ 0.25. 360 miles/month = 90 ÷ 0.25. 4,380 miles/year = 1,095 ÷ 0.25</p>
+        <p>0.72 minutes/day = 3.00 ÷ 250 × 60. 21.6 minutes/month = 90 ÷ 250 × 60. 262.8 minutes/year = 1,095 ÷ 250 × 60</p>
+        <p>3.36% a day = 3.00 ÷ 89.25</p>
+      </div>
+      <p class="m-note">In February 2024, Tesla's Drew Baglino said the team was working to cut Sentry power by about 40%. This example does not apply that cut. Today's draw may be lower.</p>
+      <p class="m-note">Example estimate; your results vary. In the app, you see your car's real numbers.</p>
+    </div>
+
+    <h2>Sources</h2>
+    <div class="m-card">
+      <ul class="m-sources">
+        <li><a href="https://electrek.co/2024/02/22/tesla-works-slash-sentry-mode-power-usage/">Electrek, 22 Feb 2024</a>. Owner reports of 7.2 kWh in a day with Sentry on, and Drew Baglino's post that the team was working to cut that use by about 40%.</li>
+        <li><a href="https://www.tesla.com/ownersmanual/models/en_us/GUID-56703182-8191-4DAE-AF07-2FDC0EB64663.html">Tesla Model S owner's manual, Sentry Mode</a>. “Power consumption may increase when Sentry Mode is active.” No watt figure.</li>
+        <li><a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_3">EIA Electric Power Monthly, Table 5.3</a>. Residential average 18.16¢/kWh in August 2026. Preliminary. Released 23 Oct 2026.</li>
+        <li><a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=49743">fueleconomy.gov, 2026 Tesla Model Y Long Range RWD</a>. 25 kWh/100 mi and 357 miles total range.</li>
+        <li><a href="https://www.tesla.com/support/charging/supercharging">Tesla Support, Supercharging</a>. V3 Superchargers peak at up to 250 kW. Speed varies with the pack, state of charge, temperature, and the car. Prices vary by site and are not used in the dollar figure above.</li>
+      </ul>
     </div>
 
     <h2>Questions</h2>
     <div class="m-card">
       <h3>Is it beta?</h3>
-      <p>Yes. Early access for South Florida Tesla owners. You are helping shape what we build.</p>
-      <h3>Where does it work?</h3>
-      <p>Miami-Dade, Broward, and Palm Beach. Inside that area, a spot with no local data yet does not get a made-up low score. Compline leans toward leaving Sentry on.</p>
-      <h3>Does it drain my battery?</h3>
-      <p>Sentry Mode is what draws the battery. Compline’s job is to leave Sentry off when the spot does not call for it. Turning Sentry on or off can briefly wake the car.</p>
+      <p>Yes. Early access in Miami-Dade, Broward, and Palm Beach.</p>
+      <h3>Does it drain the battery?</h3>
+      <p>Sentry Mode is what draws the power. Compline leaves it off where the risk is low. Turning Sentry on or off can briefly wake the car. The figures above are an example, not your car.</p>
       <h3>Can I turn it off or delete my account?</h3>
-      <p>Yes. Auto-Sentry stays off until you turn it on, and you can turn it off in the app. You can remove the virtual key and revoke Compline in your Tesla account. You can delete the account from the account page, or email <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>.</p>
+      <p>Yes. Auto-Sentry stays off until you turn it on, and you can turn it off in Settings. You can remove the virtual key and revoke Compline in your Tesla account. You can delete the account from the account page, or email <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a>.</p>
     </div>
   </div>
 
   <div class="m-card m-beta">
     <h2>Join the Beta</h2>
-    <p class="m-value">Early access for South Florida Tesla owners. Help shape what we build.</p>
-    <p class="m-note">Miami-Dade, Broward, and Palm Beach.</p>
+    <p class="m-note">Early access · Miami-Dade, Broward and Palm Beach.</p>
     <a class="m-btn m-btn-block" href="https://app.getcompline.app/login?mode=signup">Join the Beta</a>
   </div>
 </main>
@@ -108,11 +216,11 @@
 <footer class="m-foot">
   <div class="m-wrap m-narrow m-foot-inner">
     <div>
-      <p>Compline · keeps watch while you sleep.</p>
       <p>Not affiliated with Tesla.</p>
       <p>Contact <a href="mailto:privacy@getcompline.app">privacy@getcompline.app</a></p>
     </div>
     <nav aria-label="Footer">
+      <a href="https://app.getcompline.app/">Open app</a>
       <a href="/how-it-works/" aria-current="page">How it works</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
@@ -120,5 +228,6 @@
     </nav>
   </div>
 </footer>
+<script src="/js/estimate.js"></script>
 </body>
 </html>
